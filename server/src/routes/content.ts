@@ -1,12 +1,17 @@
 import { Router, type Router as ExpressRouter, type RequestHandler } from 'express'
 import { readFile } from 'fs/promises'
-import { join } from 'path'
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
 
 import type { ModuleContent, ModuleMeta, Unit } from '../../../shared/types.js'
 import { MODULE_IDS, isModuleId } from '../../../shared/constants.js'
 
 
-const CONTENT_DIR = process.env.CONTENT_DIR || join(process.cwd(), '..', 'content')
+const HERE = dirname(fileURLToPath(import.meta.url))
+// Compiled layout: <root>/server/dist/server/src/routes/content.js
+// So from routes/ up 5 -> <root>/content  (source layout under tsx also resolves)
+const CONTENT_DIR =
+  process.env.CONTENT_DIR || join(HERE, '..', '..', '..', '..', '..', 'content')
 
 /**
  * @param requireAuth - applied ONLY to /grade (answer key lives in its response).

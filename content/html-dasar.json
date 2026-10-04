@@ -1,0 +1,94 @@
+{
+  "id": "html-dasar",
+  "title": "HTML Dasar",
+  "summary": "Pelajari struktur dasar halaman web dengan HTML - fondasi dari semua website.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu HTML?",
+      "content": "HTML (HyperText Markup Language) adalah bahasa markup standar untuk membuat halaman web. HTML mendefinisikan struktur dan konten sebuah halaman menggunakan elemen-elemen yang dibungkus dengan tag.\n\nSetiap file HTML biasanya berakhiran `.html` dan bisa dibuka oleh browser web. HTML bukan bahasa pemrograman - ia tidak bisa melakukan logika atau kalkulasi, tapi ia menjadi kerangka yang nanti diperindah oleh CSS dan dihidupkan oleh JavaScript."
+    },
+    {
+      "id": "struktur",
+      "title": "Struktur Dasar HTML",
+      "content": "Setiap dokumen HTML memiliki struktur minimal:\n\n```html\n<!DOCTYPE html>\n<html lang=\"id\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Judul Halaman</title>\n</head>\n<body>\n  <h1>Selamat Datang</h1>\n  <p>Ini paragraf pertama saya.</p>\n</body>\n</html>\n```\n\nPenjelasan:\n- `<!DOCTYPE html>` memberitahu browser ini HTML5\n- `<html>` adalah elemen root\n- `<head>` berisi metadata (judul, charset, dll)\n- `<body>` berisi konten yang tampil di layar"
+    },
+    {
+      "id": "elemen",
+      "title": "Elemen dan Tag",
+      "content": "Elemen HTML dibuat dengan tag. Tag biasanya berpasangan: pembuka `<p>` dan penutup `</p>`.\n\nContoh elemen:\n- `<h1>` sampai `<h6>`: judul (heading)\n- `<p>`: paragraf\n- `<a href=\"...\">`: tautan (link)\n- `<img src=\"...\">`: gambar (tanpa tag penutup)\n- `<div>`: container generik (block)\n- `<span>`: container generik (inline)\n\nAtribut ditulis di tag pembuka:\n```html\n<a href=\"https://example.com\" target=\"_blank\">Buka Link</a>\n```"
+    },
+    {
+      "id": "semantic",
+      "title": "Elemen Semantik",
+      "content": "HTML5 memperkenalkan elemen semantik yang menjelaskan makna konten:\n\n- `<header>`: bagian kepala halaman/section\n- `<nav>`: navigasi\n- `<main>`: konten utama\n- `<article>`: konten mandiri (artikel, post)\n- `<section>`: bagian dari dokumen\n- `<aside>`: konten sampingan\n- `<footer>`: bagian kaki halaman/section\n\nMenggunakan elemen semantik membantu:\n1. Screen reader (aksesibilitas)\n2. SEO (mesin pencari memahami struktur)\n3. Developer lain membaca kode"
+    },
+    {
+      "id": "list",
+      "title": "Daftar (Lists)",
+      "content": "HTML mendukung dua jenis daftar:\n\n**1. Daftar tidak berurutan (unordered list):**\n```html\n<ul>\n  <li>Apel</li>\n  <li>Jeruk</li>\n  <li>Mangga</li>\n</ul>\n```\n\n**2. Daftar berurutan (ordered list):**\n```html\n<ol>\n  <li>Login</li>\n  <li>Pilih item</li>\n  <li>Checkout</li>\n</ol>\n```\n\nGunakan `<ul>` saat urutan tidak penting, `<ol>` saat urutan penting."
+    },
+    {
+      "id": "form",
+      "title": "Formulir Dasar",
+      "content": "Formulir digunakan untuk mengumpulkan input dari pengguna:\n\n```html\n<form action=\"/submit\" method=\"POST\">\n  <label for=\"nama\">Nama:</label>\n  <input type=\"text\" id=\"nama\" name=\"nama\" required>\n\n  <label for=\"email\">Email:</label>\n  <input type=\"email\" id=\"email\" name=\"email\">\n\n  <button type=\"submit\">Kirim</button>\n</form>\n```\n\nTipe input umum:\n- `text`: teks biasa\n- `email`: email (validasi otomatis)\n- `password`: teks tersembunyi\n- `number`: angka\n- `checkbox`: centang\n- `radio`: pilihan tunggal"
+    }
+  ],
+  "questions": [
+    {
+      "text": "Apa kepanjangan dari HTML?",
+      "options": [
+        "HyperText Markup Language",
+        "High Tech Modern Language",
+        "Home Tool Markup Language",
+        "Hyperlink Text Making Language"
+      ],
+      "answerIndex": 0,
+      "explanation": "HTML adalah HyperText Markup Language, bahasa markup standar untuk halaman web."
+    },
+    {
+      "text": "Tag mana yang digunakan untuk membuat paragraf?",
+      "options": [
+        "<paragraph>",
+        "<p>",
+        "<para>",
+        "<text>"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tag <p> digunakan untuk membungkus paragraf teks."
+    },
+    {
+      "text": "Apa fungsi elemen <head>?",
+      "options": [
+        "Menampilkan judul besar",
+        "Menyimpan metadata halaman",
+        "Membuat navigasi",
+        "Menampilkan gambar"
+      ],
+      "answerIndex": 1,
+      "explanation": "Elemen <head> berisi metadata seperti judul, charset, link CSS, dan script."
+    },
+    {
+      "text": "Tag mana yang TIDAK memerlukan penutup?",
+      "options": [
+        "<div>",
+        "<span>",
+        "<img>",
+        "<p>"
+      ],
+      "answerIndex": 2,
+      "explanation": "<img> adalah self-closing tag, tidak butuh </img>."
+    },
+    {
+      "text": "Elemen semantik mana yang cocok untuk navigasi?",
+      "options": [
+        "<div>",
+        "<nav>",
+        "<section>",
+        "<article>"
+      ],
+      "answerIndex": 1,
+      "explanation": "<nav> secara semantik mendefinisikan area navigasi halaman."
+    }
+  ]
+}

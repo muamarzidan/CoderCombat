@@ -1,0 +1,172 @@
+{
+  "id": "algo-dsa",
+  "title": "Algorithms & Data Structures",
+  "summary": "Pelajari cara menyusun solusi komputasional dan cara mengorganisasi data agar dapat diproses secara efektif.",
+  "units": [
+    {
+      "id": "apa-itu-algoritma",
+      "title": "Apa itu Algoritma?",
+      "content": "Algoritma adalah prosedur atau serangkaian langkah untuk menyelesaikan suatu masalah atau menghasilkan suatu hasil tertentu.\n\nAlgoritma tidak harus ditulis menggunakan bahasa pemrograman. Resep memasak, prosedur menghitung rata-rata, dan langkah mencari nilai terbesar dapat dijelaskan sebagai algoritma.\n\nDalam programming, algoritma kemudian dapat diimplementasikan menggunakan bahasa pemrograman."
+    },
+    {
+      "id": "karakteristik-algoritma",
+      "title": "Karakteristik Algoritma",
+      "content": "Algoritma yang baik perlu memiliki langkah yang cukup jelas untuk dijalankan dan harus menyelesaikan tujuan yang ditentukan.\n\nSalah satu cara umum untuk membahas algoritma adalah:\n- Memiliki input yang didefinisikan jika diperlukan\n- Menghasilkan output\n- Langkah-langkahnya jelas atau tidak ambigu\n- Memiliki jumlah langkah yang terbatas untuk kasus yang memang harus selesai\n- Setiap langkah dapat dijalankan secara efektif sesuai model komputasi yang digunakan\n\nTidak semua algoritma harus memiliki input. Sebuah algoritma dapat menghasilkan output tetap atau menggunakan sumber informasi lain sesuai definisinya."
+    },
+    {
+      "id": "input-process-output-algorithm",
+      "title": "Input, Process, dan Output dalam Algoritma",
+      "content": "Salah satu cara sederhana untuk merancang algoritma adalah mengidentifikasi input, proses, dan output.\n\nContoh: mencari luas persegi panjang.\n\nInput:\n- Panjang\n- Lebar\n\nProcess:\n- Kalikan panjang dengan lebar\n\nOutput:\n- Luas persegi panjang\n\nPseudocode:\n\n```text\nINPUT panjang\nINPUT lebar\nluas = panjang × lebar\nOUTPUT luas\n```"
+    },
+    {
+      "id": "sequence",
+      "title": "Sequence: Urutan Instruksi",
+      "content": "Sequence adalah eksekusi langkah secara berurutan.\n\nContoh:\n\n```text\n1. Masukkan harga\n2. Masukkan jumlah\n3. Hitung harga × jumlah\n4. Tampilkan total\n```\n\nUrutan tersebut menghasilkan alur yang jelas. Dalam program, instruksi biasanya dieksekusi mengikuti aturan kontrol alur bahasa pemrograman yang digunakan."
+    },
+    {
+      "id": "selection",
+      "title": "Selection: Percabangan",
+      "content": "Selection memungkinkan algoritma memilih tindakan berdasarkan kondisi.\n\nContoh:\n\n```text\nINPUT nilai\n\nIF nilai >= 75\n  OUTPUT \"Lulus\"\nELSE\n  OUTPUT \"Belum Lulus\"\n```\n\nDalam bahasa pemrograman seperti JavaScript, konsep ini dapat diterapkan menggunakan if, else if, dan else.\n\nPercabangan membuat algoritma dapat memberikan hasil berbeda untuk input atau keadaan yang berbeda."
+    },
+    {
+      "id": "iteration",
+      "title": "Iteration: Pengulangan",
+      "content": "Iteration adalah menjalankan suatu bagian algoritma berulang kali berdasarkan kondisi atau jumlah pengulangan tertentu.\n\nContoh:\n\n```text\nUNTUK setiap angka dari 1 sampai 5\n  TAMPILKAN angka\n```\n\nDalam programming, pengulangan dapat dilakukan menggunakan struktur seperti for dan while.\n\nPengulangan berguna ketika operasi yang sama perlu dilakukan terhadap banyak data."
+    },
+    {
+      "id": "searching",
+      "title": "Searching: Mencari Data",
+      "content": "Searching adalah proses menemukan data tertentu dalam sekumpulan data.\n\nSalah satu algoritma sederhana adalah linear search. Algoritma ini memeriksa elemen satu per satu dari awal sampai menemukan nilai yang dicari atau mencapai akhir data.\n\nContoh:\n\nData = [8, 3, 7, 1, 9]\nTarget = 7\n\nLinear search memeriksa:\n8 → bukan target\n3 → bukan target\n7 → ditemukan\n\nPada kasus terburuk, linear search memeriksa seluruh n elemen sehingga memiliki kompleksitas waktu O(n)."
+    },
+    {
+      "id": "binary-search",
+      "title": "Binary Search",
+      "content": "Binary search adalah algoritma pencarian yang bekerja pada data yang telah diurutkan berdasarkan aturan yang sesuai.\n\nIde dasarnya adalah membandingkan target dengan elemen tengah dan menghilangkan setengah ruang pencarian pada setiap langkah.\n\nContoh:\n\nData terurut:\n[1, 3, 5, 7, 9, 11, 13]\n\nJika mencari 11, algoritma tidak perlu memeriksa setiap elemen satu per satu. Algoritma dapat menggunakan nilai tengah untuk menentukan apakah harus mencari di bagian kiri atau kanan.\n\nKompleksitas waktu binary search adalah O(log n) pada implementasi iteratif yang umum.\n\nSyarat penting: data harus berada dalam kondisi terurut yang sesuai dengan algoritma pencarian."
+    },
+    {
+      "id": "sorting",
+      "title": "Sorting: Mengurutkan Data",
+      "content": "Sorting adalah proses mengatur data berdasarkan aturan tertentu, misalnya dari kecil ke besar atau besar ke kecil.\n\nContoh:\n\nSebelum:\n[5, 2, 8, 1]\n\nAscending:\n[1, 2, 5, 8]\n\nBeberapa algoritma sorting yang terkenal antara lain:\n- Bubble sort\n- Selection sort\n- Insertion sort\n- Merge sort\n- Quicksort\n\nAlgoritma-algoritma tersebut memiliki karakteristik dan kompleksitas yang berbeda."
+    },
+    {
+      "id": "kompleksitas",
+      "title": "Mengukur Efisiensi Algoritma",
+      "content": "Ketika membandingkan algoritma, kita sering ingin mengetahui bagaimana kebutuhan waktu atau ruangnya berubah ketika ukuran input bertambah.\n\nBig O notation digunakan untuk menyatakan pertumbuhan asimtotik suatu algoritma atau fungsi terhadap ukuran input.\n\nContoh sederhana:\n- O(1): waktu tidak bergantung pada ukuran input dalam model yang dianalisis.\n- O(n): waktu bertumbuh secara linear terhadap jumlah input.\n- O(log n): pertumbuhan logaritmik.\n- O(n²): pertumbuhan kuadratik.\n\nBig O bukan berarti waktu eksekusi sebenarnya selalu sama persis dengan ekspresi tersebut. Big O menggambarkan laju pertumbuhan asimtotik dengan mengabaikan faktor konstan dan detail tingkat rendah tertentu."
+    },
+    {
+      "id": "array",
+      "title": "Array",
+      "content": "Array adalah struktur data yang menyimpan kumpulan elemen dalam suatu urutan dan memungkinkan elemen diakses berdasarkan indeks.\n\nContoh:\n\n```javascript\nconst fruits = [\"Apel\", \"Jeruk\", \"Mangga\"];\n```\n\nPada banyak bahasa pemrograman, indeks array dimulai dari 0. Pada JavaScript:\n\n```javascript\nfruits[0] // \"Apel\"\nfruits[1] // \"Jeruk\"\n```\n\nArray sangat umum digunakan untuk menyimpan kumpulan data yang akan diproses secara berurutan."
+    },
+    {
+      "id": "stack",
+      "title": "Stack",
+      "content": "Stack adalah struktur data yang mengikuti prinsip LIFO (Last In, First Out): elemen yang terakhir masuk adalah elemen yang pertama keluar.\n\nBayangkan tumpukan piring. Piring yang terakhir diletakkan di atas biasanya diambil terlebih dahulu.\n\nOperasi umum:\n- Push: menambahkan elemen\n- Pop: mengambil atau menghapus elemen dari bagian atas\n- Peek/Top: melihat elemen teratas tanpa menghapusnya\n\nStack dapat digunakan dalam berbagai konteks seperti call stack dan algoritma tertentu."
+    },
+    {
+      "id": "queue",
+      "title": "Queue",
+      "content": "Queue adalah struktur data yang mengikuti prinsip FIFO (First In, First Out): elemen yang pertama masuk adalah elemen yang pertama keluar.\n\nContohnya adalah antrean. Orang yang datang lebih dahulu biasanya dilayani lebih dahulu.\n\nOperasi umum:\n- Enqueue: menambahkan elemen ke belakang antrean\n- Dequeue: mengambil atau menghapus elemen dari depan antrean\n\nQueue dapat digunakan untuk pemrosesan tugas secara berurutan dan berbagai algoritma."
+    },
+    {
+      "id": "set",
+      "title": "Set",
+      "content": "Set adalah struktur data yang menyimpan kumpulan nilai unik dalam definisi struktur set tersebut.\n\nDalam JavaScript tersedia objek Set:\n\n```javascript\nconst numbers = new Set([1, 2, 2, 3]);\n```\n\nNilai yang tersimpan adalah 1, 2, dan 3.\n\nSet berguna ketika kebutuhan utama adalah menyimpan nilai unik dan melakukan operasi terkait keanggotaan."
+    },
+    {
+      "id": "map",
+      "title": "Map dan Key-Value",
+      "content": "Struktur key-value menyimpan nilai yang dapat diakses menggunakan sebuah kunci.\n\nContoh konsep:\n\n```text\n\"nama\" → \"Budi\"\n\"umur\" → 17\n\"kelas\" → \"XI IPA\"\n```\n\nDalam JavaScript, Map dapat digunakan untuk menyimpan pasangan key-value.\n\n```javascript\nconst student = new Map();\nstudent.set(\"nama\", \"Budi\");\nstudent.set(\"umur\", 17);\n```\n\nStruktur key-value berguna ketika data perlu ditemukan berdasarkan sebuah kunci."
+    },
+    {
+      "id": "memilih-struktur-data",
+      "title": "Memilih Struktur Data",
+      "content": "Struktur data sebaiknya dipilih berdasarkan kebutuhan operasi yang akan dilakukan.\n\nContoh:\n\nJika kita membutuhkan urutan elemen dan akses berdasarkan indeks, array dapat menjadi pilihan yang sesuai.\n\nJika kita membutuhkan kumpulan nilai unik, set dapat menjadi pilihan.\n\nJika kita membutuhkan pasangan key-value, map dapat digunakan.\n\nJika kita membutuhkan perilaku LIFO, stack sesuai dengan konsep tersebut.\n\nTidak ada satu struktur data yang selalu paling baik untuk semua masalah. Pemilihan bergantung pada data, operasi yang dibutuhkan, batasan, dan karakteristik implementasi."
+    },
+    {
+      "id": "recursion-dasar",
+      "title": "Pengenalan Recursion",
+      "content": "Recursion adalah teknik ketika sebuah fungsi memanggil dirinya sendiri untuk menyelesaikan masalah yang dapat dipecah menjadi submasalah dengan bentuk serupa.\n\nRecursive function harus memiliki kondisi dasar (base case) yang menghentikan proses rekursif.\n\nContoh konseptual:\n\n```text\nfungsi hitungMundur(n)\n  jika n <= 0\n    selesai\n  tampilkan n\n  hitungMundur(n - 1)\n```\n\nTanpa base case yang sesuai, rekursi dapat terus berlangsung hingga sumber daya eksekusi habis."
+    },
+    {
+      "id": "problem-to-algorithm",
+      "title": "Dari Masalah Menjadi Algoritma",
+      "content": "Untuk menyelesaikan masalah menggunakan algoritma, gunakan proses yang sistematis:\n\n1. Pahami masalah.\n2. Tentukan input dan output.\n3. Tentukan batasan dan kondisi khusus.\n4. Pecah masalah menjadi bagian yang lebih kecil.\n5. Buat langkah penyelesaian.\n6. Tulis pseudocode atau flowchart.\n7. Uji dengan contoh sederhana.\n8. Periksa kasus batas (edge cases).\n9. Analisis efisiensi jika diperlukan.\n10. Implementasikan algoritma dalam bahasa pemrograman.\n\nProses ini membantu memisahkan perancangan solusi dari detail sintaks bahasa pemrograman."
+    },
+    {
+      "id": "edge-cases",
+      "title": "Edge Cases",
+      "content": "Edge case adalah kondisi khusus yang berada di batas atau di luar kondisi umum yang perlu diperhatikan ketika menguji solusi.\n\nContoh program yang mencari nilai terbesar dalam array:\n\nInput umum:\n[3, 8, 2, 9]\n\nEdge case yang perlu dipikirkan:\n- Array hanya memiliki satu elemen.\n- Semua nilai sama.\n- Semua nilai negatif.\n- Array kosong, jika kasus tersebut diperbolehkan oleh spesifikasi.\n\nMemikirkan edge case membantu menemukan kelemahan algoritma sebelum program digunakan pada data nyata."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Apa yang dimaksud dengan algoritma?",
+      "options": [
+        "Hanya kode yang ditulis menggunakan JavaScript",
+        "Serangkaian langkah untuk menyelesaikan masalah atau menghasilkan hasil tertentu",
+        "Jenis database",
+        "Bahasa markup"
+      ],
+      "answerIndex": 1,
+      "explanation": "Algoritma adalah prosedur atau serangkaian langkah untuk menyelesaikan masalah atau menghasilkan hasil tertentu."
+    },
+    {
+      "text": "Algoritma linear search pada kasus terburuk dapat memiliki kompleksitas...",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+      "answerIndex": 2,
+      "explanation": "Linear search dapat memeriksa seluruh n elemen pada kasus terburuk sehingga kompleksitas waktunya O(n)."
+    },
+    {
+      "text": "Apa syarat penting binary search?",
+      "options": [
+        "Data harus selalu berupa string",
+        "Data harus berada dalam kondisi terurut yang sesuai",
+        "Data harus memiliki tepat 10 elemen",
+        "Data harus disimpan dalam database"
+      ],
+      "answerIndex": 1,
+      "explanation": "Binary search menggunakan informasi tentang urutan data untuk menghilangkan sebagian ruang pencarian pada setiap langkah."
+    },
+    {
+      "text": "Apa prinsip yang digunakan oleh Stack?",
+      "options": ["FIFO", "LIFO", "Random First", "Sorted First"],
+      "answerIndex": 1,
+      "explanation": "Stack menggunakan prinsip LIFO, yaitu Last In, First Out."
+    },
+    {
+      "text": "Apa prinsip yang digunakan oleh Queue?",
+      "options": ["LIFO", "FIFO", "Random Access Only", "Last In, Last Out"],
+      "answerIndex": 1,
+      "explanation": "Queue menggunakan prinsip FIFO, yaitu First In, First Out."
+    },
+    {
+      "text": "Struktur data mana yang cocok ketika kebutuhan utamanya adalah menyimpan nilai unik?",
+      "options": ["Set", "Stack", "Queue", "String"],
+      "answerIndex": 0,
+      "explanation": "Set digunakan untuk merepresentasikan kumpulan nilai unik."
+    },
+    {
+      "text": "Apa tujuan base case pada recursion?",
+      "options": [
+        "Membuat fungsi selalu berjalan lebih cepat",
+        "Menghentikan proses rekursif ketika kondisi tertentu tercapai",
+        "Mengubah recursion menjadi loop secara otomatis",
+        "Menghapus semua variabel"
+      ],
+      "answerIndex": 1,
+      "explanation": "Base case menentukan kondisi ketika fungsi rekursif berhenti melakukan pemanggilan dirinya sendiri."
+    },
+    {
+      "text": "Apa yang digambarkan oleh Big O secara umum?",
+      "options": [
+        "Warna kode program",
+        "Pertumbuhan kebutuhan sumber daya terhadap ukuran input secara asimtotik",
+        "Jumlah programmer dalam sebuah proyek",
+        "Ukuran file source code"
+      ],
+      "answerIndex": 1,
+      "explanation": "Big O digunakan untuk menggambarkan pertumbuhan asimtotik suatu algoritma atau fungsi terhadap ukuran input."
+    }
+  ]
+}

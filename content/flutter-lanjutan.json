@@ -1,0 +1,130 @@
+{
+  "id": "flutter-lanjutan",
+  "title": "Flutter Lanjutan",
+  "summary": "Pola arsitektur, penyimpanan lokal, integrasi API, dan optimasi performa aplikasi Flutter.",
+  "units": [
+    {
+      "id": "arsitektur",
+      "title": "Arsitektur Aplikasi",
+      "content": "Saat aplikasi tumbuh, struktur kode yang rapi sangat penting. Pola populer di Flutter adalah memisahkan kode ke beberapa **layer**:\n\n- **Presentation** (UI): widget dan tampilan.\n- **Domain** (logika bisnis): aturan aplikasi, model.\n- **Data** (repository): sumber data dari API lokal maupun jaringan.\n\nPemisahan ini membuat kode:\n- Lebih mudah diuji (*testable*).\n- Tidak tergantung pada satu sumber data.\n- Mudah diganti bagiannya tanpa merusak yang lain.\n\nPrinsip umum: UI **tidak boleh** langsung memanggil API. UI memanggil logika, logika memanggil repository. Ini mengurangi *coupling* dan menjaga kode tetap terpelihara."
+    },
+    {
+      "id": "riverpod",
+      "title": "State Management Lanjutan (Riverpod)",
+      "content": "Riverpod adalah solusi manajemen state modern yang lebih aman dibanding Provider karena tidak bergantung pada `BuildContext`.\n\n```dart\nfinal counterProvider = StateNotifierProvider<CounterNotifier, int>(\n  (ref) => CounterNotifier(),\n);\n\nclass CounterNotifier extends StateNotifier<int> {\n  CounterNotifier() : super(0);\n  void tambah() => state++;\n}\n```\n\nDi widget:\n```dart\nfinal nilai = ref.watch(counterProvider);\nref.read(counterProvider.notifier).tambah();\n```\n\nKeunggulan Riverpod:\n- **Compile-safe**: kesalahan terdeteksi saat kompilasi.\n- Tidak perlu `context` untuk membaca state.\n- Mudah dikombinasikan dan di-*override* saat pengujian.\n\nGunakan `ref.watch` untuk **mendengarkan** perubahan, dan `ref.read` untuk **memicu aksi** sekali saja."
+    },
+    {
+      "id": "repository",
+      "title": "Repository Pattern & Model",
+      "content": "**Repository pattern** menjadi jembatan antara logika aplikasi dan sumber data (API, database lokal).\n\n```dart\nabstract class PenggunaRepository {\n  Future<List<Pengguna>> ambilSemua();\n}\n\nclass PenggunaApiRepository implements PenggunaRepository {\n  @override\n  Future<List<Pengguna>> ambilSemua() async {\n    final res = await http.get(Uri.parse('$baseUrl/pengguna'));\n    final data = jsonDecode(res.body) as List<dynamic>;\n    return data.map((e) => Pengguna.fromJson(e as Map<String, dynamic>)).toList();\n  }\n}\n```\n\nModel dengan konversi JSON:\n```dart\nclass Pengguna {\n  final String nama;\n  final int umur;\n\n  Pengguna({required this.nama, required this.umur});\n\n  factory Pengguna.fromJson(Map<String, dynamic> json) =>\n      Pengguna(nama: json['nama'] as String, umur: json['umur'] as int);\n}\n```\n\nMemisahkan repository membuat UI tetap bersih dan sumber data mudah diganti (misalnya dari API ke cache)."
+    },
+    {
+      "id": "localstorage",
+      "title": "Penyimpanan Lokal",
+      "content": "Flutter menyediakan beberapa cara menyimpan data di perangkat:\n\n**shared_preferences** - pasangan kunci-nilai sederhana (untuk preferensi):\n```dart\nfinal prefs = await SharedPreferences.getInstance();\nawait prefs.setString('token', 'abc123');\nfinal token = prefs.getString('token');\n```\n\n**sqflite** - database SQL lokal untuk data terstruktur.\n\n**Hive / Isar** - database kunci-nilai berperforma tinggi, cocok untuk data objek.\n\n**secure_storage** - menyimpan data sensitif (token, kredensial) secara **terenkripsi**:\n```dart\nfinal storage = const FlutterSecureStorage();\nawait storage.write(key: 'token', value: token);\n```\n\nAturan keamanan: **jangan** pernah menyimpan token atau data sensitif di shared_preferences biasa - gunakan secure_storage."
+    },
+    {
+      "id": "api",
+      "title": "Integrasi REST API & Error Handling",
+      "content": "Aplikasi nyata berkomunikasi dengan backend. Pola yang baik adalah membungkus panggilan jaringan dengan penanganan error yang rapi.\n\n```dart\nFuture<T> request<T>(Future<http.Response> Function() call) async {\n  try {\n    final res = await call();\n    if (res.statusCode >= 200 && res.statusCode < 300) {\n      return jsonDecode(res.body) as T;\n    }\n    throw ApiException('Status ${res.statusCode}');\n  } on SocketException {\n    throw ApiException('Tidak ada koneksi internet');\n  } on TimeoutException {\n    throw ApiException('Koneksi timeout');\n  }\n}\n```\n\nSelalu:\n- Periksa **status code**.\n- Tangani **timeout** dan **koneksi terputus**.\n- Berikan pesan error yang **informatif** ke pengguna, bukan pesan teknis mentah.\n- Gunakan `dio` bila butuh fitur lanjutan seperti *interceptor* dan *retry*."
+    },
+    {
+      "id": "offline",
+      "title": "Mode Offline & Sinkronisasi",
+      "content": "Aplikasi yang baik tetap bisa dipakai saat jaringan lemah atau putus.\n\nStrategi umum: **cache-first** - tampilkan data lokal lebih dulu, lalu sinkronkan dengan server.\n\n```dart\nFuture<List<Item>> ambilItem() async {\n  final lokal = await database.ambilSemua();\n  if (lokal.isNotEmpty) {\n    // Tampilkan cepat dari cache\n    _sinkronkanDiLatar();\n    return lokal;\n  }\n  // Cache kosong - ambil dari jaringan\n  final dariApi = await api.ambilItem();\n  await database.simpan(dariApi);\n  return dariApi;\n}\n```\n\nPrinsip penting:\n- **Optimistic UI**: tampilkan perubahan seolah langsung berhasil, sinkronkan di latar.\n- Tangani **konflik** data dengan aturan yang jelas.\n- Beri indikator jelas saat data mungkin belum terbaru (*stale*)."
+    },
+    {
+      "id": "testing",
+      "title": "Pengujian Aplikasi",
+      "content": "Flutter mendukung tiga tingkat pengujian:\n\n**1. Unit test** - menguji fungsi/logika tanpa UI:\n```dart\ntest('penjumlahan benar', () {\n  expect(tambah(2, 3), 5);\n});\n```\n\n**2. Widget test** - menguji tampilan dan interaksi:\n```dart\ntestWidgets('tombol menambah angka', () async {\n  await tester.pumpWidget(const MyApp());\n  await tester.tap(find.byType(ElevatedButton));\n  await tester.pump();\n  expect(find.text('Ditekan: 1'), findsOneWidget);\n});\n```\n\n**3. Integration test** - menguji alur lengkap aplikasi di perangkat/emulator.\n\nJalankan dengan `flutter test`. Menulis tes membuat perubahan kode lebih aman karena regresi terdeteksi otomatis."
+    },
+    {
+      "id": "performa",
+      "title": "Optimasi Performa",
+      "content": "Aplikasi yang lancar terasa profesional. Beberapa teknik optimasi:\n\n- **const widget**: gunakan `const` pada widget statis agar tidak dibangun ulang.\n- **ListView.builder**: hindari membangun seluruh daftar sekaligus.\n- **Pisahkan rebuild**: bungkus bagian kecil dengan widget sendiri agar `setState` tidak membangun ulang seluruh layar.\n- **Hindari kerja berat di `build()`**: pindahkan komputasi ke luar atau ke *isolate*.\n- **Gunakan `RepaintBoundary`**: membatasi area yang digambar ulang.\n\nUntuk pekerjaan berat (parsing besar, enkripsi), gunakan `compute()` yang menjalankannya di **isolate** terpisah sehingga UI tetap responsif:\n```dart\nfinal hasil = await compute(parseDataBesar, teks);\n```\n\nSelalu ukur dulu dengan **DevTools** sebelum mengoptimasi - jangan menebak."
+    },
+    {
+      "id": "platform",
+      "title": "Akses Fitur Platform (Plugin)",
+      "content": "Flutter mengakses fitur native lewat **plugin** dan **platform channel**.\n\nContoh plugin populer:\n- `camera` - akses kamera.\n- `geolocator` - lokasi GPS.\n- `path_provider` - lokasi folder penyimpanan.\n- `url_launcher` - membuka tautan/browser.\n\n```dart\nif (await canLaunchUrl(uri)) {\n  await launchUrl(uri);\n}\n```\n\nUntuk fitur yang belum ada pluginnya, buat **MethodChannel** agar Dart bisa memanggil kode Kotlin/Swift:\n```dart\nconst channel = MethodChannel('app/battery');\nfinal level = await channel.invokeMethod<int>('getBatteryLevel');\n```\n\nCek dulu di pub.dev - sering kali plugin yang matang sudah tersedia, sehingga tidak perlu menulis kode native sendiri (DRY)."
+    },
+    {
+      "id": "deploy",
+      "title": "CI/CD & Publikasi",
+      "content": "Menerbitkan aplikasi ke toko aplikasi butuh proses yang disiplin.\n\n**Google Play:**\n1. Buat **keystore** untuk menandatangani aplikasi.\n2. Konfigurasi `signingConfigs` di `build.gradle`.\n3. Bangun `flutter build appbundle --release`.\n4. Unggah ke Play Console, isi metadata, lalu rilis bertahap (*staged rollout*).\n\n**Apple App Store:** perlu akun developer, Xcode, dan `flutter build ipa`.\n\n**CI/CD** mengotomatiskan build dan pengujian:\n- GitHub Actions, Codemagic, atau Bitrise.\n- Jalankan `flutter analyze` dan `flutter test` di setiap *pull request*.\n- Bangun artefak otomatis saat rilis.\n\nSelalu naikkan **version** dan isi **changelog** di setiap rilis agar pengguna tahu apa yang berubah."
+    },
+    {
+      "id": "keamanan",
+      "title": "Keamanan Aplikasi Mobile",
+      "content": "Keamanan aplikasi mobile tidak boleh diabaikan.\n\nPraktik penting:\n- **Jangan simpan rahasia di kode** - API key rahasia tidak boleh di-hardcode dalam aplikasi.\n- Simpan token di **secure storage** yang terenkripsi, bukan shared_preferences.\n- Gunakan **HTTPS** untuk semua komunikasi.\n- Validasi input di **sisi server**, jangan hanya di aplikasi (klien bisa dimodifikasi).\n- Waspadai **reverse engineering** - jangan menaruh logika rahasia murni di klien.\n- Terapkan **certificate pinning** untuk mencegah serangan *man-in-the-middle*.\n\nPrinsip dasar: perlakukan perangkat pengguna sebagai lingkungan yang **tidak dipercaya**. Semua keputusan keamanan penting harus divalidasi ulang di server."
+    },
+    {
+      "id": "rilis",
+      "title": "Praktik Rilis & Pemeliharaan",
+      "content": "Merilis adalah awal, bukan akhir. Aplikasi perlu dipelihara.\n\n**Versioning** mengikuti pola `MAJOR.MINOR.PATCH`:\n- MAJOR: perubahan besar yang tidak kompatibel.\n- MINOR: fitur baru yang kompatibel.\n- PATCH: perbaikan bug.\n\n**Praktik pemeliharaan:**\n- Pantau **crash** dengan layanan seperti Firebase Crashlytics.\n- Kumpulkan **analitik** untuk memahami penggunaan (dengan menghormati privasi).\n- Perbarui dependensi secara berkala - tetapi uji dulu sebelum naik versi.\n- Tanggapi ulasan pengguna dan perbaiki masalah berulang.\n- Dokumentasikan arsitektur agar anggota tim baru cepat memahami kode.\n\nKode yang baik adalah kode yang **mudah diubah** oleh orang lain (termasuk dirimu di masa depan)."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Layer apa yang sebaiknya TIDAK dipanggil langsung oleh UI pada arsitektur bersih?",
+      "options": ["Domain/logika", "Repository/API", "Model", "Tema"],
+      "answerIndex": 1,
+      "explanation": "UI memanggil logika (domain), lalu logika memanggil repository. UI tidak langsung memanggil API agar tetap terpisah."
+    },
+    {
+      "text": "Apa keunggulan utama Riverpod dibanding Provider?",
+      "options": [
+        "Lebih cepat dikompilasi",
+        "Tidak bergantung pada BuildContext dan compile-safe",
+        "Tidak perlu paket tambahan",
+        "Hanya untuk web"
+      ],
+      "answerIndex": 1,
+      "explanation": "Riverpod tidak memerlukan BuildContext untuk membaca state dan kesalahan terdeteksi saat kompilasi."
+    },
+    {
+      "text": "Di mana sebaiknya menyimpan token autentikasi yang sensitif di Flutter?",
+      "options": [
+        "shared_preferences",
+        "File teks biasa",
+        "flutter_secure_storage (terenkripsi)",
+        "Variabel global"
+      ],
+      "answerIndex": 2,
+      "explanation": "Data sensitif seperti token harus disimpan di secure storage yang terenkripsi, bukan penyimpanan biasa."
+    },
+    {
+      "text": "Apa fungsi repository pattern?",
+      "options": [
+        "Mempercepat rendering widget",
+        "Menjadi jembatan antara logika aplikasi dan sumber data",
+        "Menggantikan state management",
+        "Membuat animasi"
+      ],
+      "answerIndex": 1,
+      "explanation": "Repository memisahkan logika aplikasi dari sumber data sehingga sumber data mudah diganti tanpa mengubah UI."
+    },
+    {
+      "text": "Teknik mana yang tepat agar komputasi berat tidak membekukan UI?",
+      "options": [
+        "Menjalankan di build()",
+        "Memakai compute() / isolate terpisah",
+        "Menambah animasi",
+        "Memakai setState berulang"
+      ],
+      "answerIndex": 1,
+      "explanation": "compute() menjalankan fungsi berat di isolate terpisah sehingga UI tetap responsif."
+    },
+    {
+      "text": "Manakah praktik keamanan yang benar untuk aplikasi mobile?",
+      "options": [
+        "Menyimpan API key rahasia di dalam kode",
+        "Memvalidasi input hanya di klien",
+        "Memvalidasi ulang semua keputusan penting di server",
+        "Menggunakan HTTP biasa agar cepat"
+      ],
+      "answerIndex": 2,
+      "explanation": "Klien tidak boleh dipercaya; validasi penting harus dilakukan di server. Rahasia jangan di-hardcode dan gunakan HTTPS."
+    }
+  ]
+}

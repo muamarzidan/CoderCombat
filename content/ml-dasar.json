@@ -1,0 +1,120 @@
+{
+  "id": "ml-dasar",
+  "title": "Machine Learning Dasar",
+  "summary": "Cara mesin belajar dari data: jenis pembelajaran, algoritma utama, dan evaluasinya.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu Machine Learning?",
+      "content": "**Machine Learning (ML)** adalah cabang AI di mana komputer **belajar dari data** untuk membuat prediksi atau keputusan, tanpa diprogram aturan secara eksplisit.\n\nBandingkan:\n- **Pemrograman tradisional**: manusia menulis aturan → komputer memberi jawaban.\n- **Machine Learning**: manusia memberi data + jawaban → komputer menemukan aturannya (model).\n\nIstilah ini dipopulerkan **Arthur Samuel** pada 1959 lewat program permainan dam yang belajar dari pengalaman. Definisi klasik dari **Tom Mitchell** (1997): sebuah program belajar dari pengalaman **E** terhadap tugas **T** dengan ukuran performa **P**, bila performanya pada T meningkat seiring pengalaman E.\n\nML cocok untuk masalah yang **terlalu rumit untuk ditulis aturannya secara manual** - misalnya mengenali wajah atau memahami suara."
+    },
+    {
+      "id": "jenis-belajar",
+      "title": "Jenis Pembelajaran",
+      "content": "Ada tiga paradigma utama pembelajaran mesin:\n\n**1. Supervised Learning (terbimbing)** - data punya **label** (jawaban benar). Model belajar memetakan input ke output.\n- Klasifikasi: output berupa kategori (spam/bukan spam).\n- Regresi: output berupa angka (prediksi harga rumah).\n\n**2. Unsupervised Learning (tak terbimbing)** - data **tanpa label**. Model mencari pola atau struktur tersembunyi.\n- Clustering: mengelompokkan data serupa (segmentasi pelanggan).\n- Dimensionality reduction: menyederhanakan data (PCA).\n\n**3. Reinforcement Learning (penguatan)** - agen belajar lewat **interaksi** dengan lingkungan, mendapat **reward** (hadiah) atau **penalti**.\n- Contoh: robot belajar berjalan, AlphaGo belajar bermain Go.\n\nSelain itu ada **semi-supervised** (sebagian berlabel) dan **self-supervised** (label dibuat dari data itu sendiri) - dasar model bahasa modern."
+    },
+    {
+      "id": "regresi",
+      "title": "Regresi Linear",
+      "content": "**Regresi linear** memprediksi nilai numerik dengan mencari **garis lurus terbaik** yang mendekati data.\n\nRumusnya:\n```\ny = w·x + b\n```\n- `x` = fitur (input)\n- `w` = bobot (*weight*)\n- `b` = bias (*intercept*)\n- `y` = prediksi\n\nContoh: memprediksi harga rumah dari luasnya. Model mencari `w` dan `b` sehingga garis sedekat mungkin dengan titik-titik data.\n\nCara mengukur kesalahan: **Mean Squared Error (MSE)** - rata-rata kuadrat selisih antara prediksi dan nilai sebenarnya:\n```\nMSE = (1/n) · Σ (y_benar − y_prediksi)²\n```\n\nProses mencari `w` dan `b` terbaik disebut **training**. Untuk lebih dari satu fitur, disebut **regresi linear berganda** (*multiple linear regression*)."
+    },
+    {
+      "id": "klasifikasi",
+      "title": "Klasifikasi & Regresi Logistik",
+      "content": "**Klasifikasi** memprediksi **kategori**. Contoh: apakah email ini spam (ya/tidak)?\n\n**Regresi logistik** (meski namanya \"regresi\") dipakai untuk klasifikasi biner. Ia mengubah keluaran linear menjadi **probabilitas** (0–1) memakai fungsi **sigmoid**:\n```\nσ(z) = 1 / (1 + e^(−z))\n```\n\nBila probabilitas > 0,5, tebak kelas 1; jika tidak, kelas 0.\n\nUntuk lebih dari dua kelas, dipakai **softmax** yang memberi probabilitas ke setiap kelas.\n\nAlgoritma klasifikasi populer lainnya:\n- **Decision Tree** - pohon keputusan berbasis aturan.\n- **K-Nearest Neighbors (KNN)** - lihat tetangga terdekat.\n- **Support Vector Machine (SVM)** - cari batas pemisah terbaik.\n- **Naive Bayes** - berbasis probabilitas, populer untuk klasifikasi teks."
+    },
+    {
+      "id": "algoritma",
+      "title": "Algoritma ML Populer",
+      "content": "Selain regresi dan klasifikasi dasar, ada banyak algoritma penting:\n\n**Decision Tree & Random Forest**\n- Decision Tree: serangkaian pertanyaan ya/tidak hingga keputusan.\n- Random Forest: gabungan banyak pohon (ensemble) → lebih akurat dan tahan overfitting.\n\n**K-Means Clustering** (unsupervised)\nMembagi data menjadi **K kelompok** berdasarkan kedekatan jarak. Titik pusat (*centroid*) diperbarui berulang hingga stabil.\n\n**K-Nearest Neighbors (KNN)**\nMengklasifikasi titik baru berdasarkan **K tetangga terdekatnya** (mirip pepatah \"lihat dengan siapa ia bergaul\").\n\n**Gradient Boosting** (XGBoost, LightGBM)\nMembangun model secara bertahap, setiap model baru memperbaiki kesalahan model sebelumnya. Sangat populer untuk data tabel.\n\nPrinsip **No Free Lunch**: tidak ada satu algoritma terbaik untuk semua masalah - pilih sesuai data dan tujuan."
+    },
+    {
+      "id": "neural",
+      "title": "Jaringan Saraf Tiruan",
+      "content": "**Neural network** (jaringan saraf tiruan) terinspirasi dari cara kerja neuron di otak.\n\nSatuan dasarnya **neuron artifisial**: menerima beberapa input, mengalikannya dengan bobot, menjumlahkan, lalu melewatkan hasilnya ke **fungsi aktivasi**.\n\nStruktur:\n- **Input layer** - menerima data.\n- **Hidden layer(s)** - memproses (bila banyak → *deep learning*).\n- **Output layer** - menghasilkan prediksi.\n\nFungsi aktivasi penting karena memberi **non-linearitas** - tanpa itu, jaringan berlapis sama saja dengan satu lapis linear. Contoh: **ReLU**, **sigmoid**, **tanh**.\n\nCara belajar: **backpropagation**. Setelah prediksi dibuat, kesalahan dihitung, lalu *gradient* kesalahan dialirkan mundur untuk menyesuaikan bobot tiap neuron.\n\nSemakin banyak lapisan dan neuron, semakin kuat - tetapi juga semakin butuh **banyak data** dan **komputasi**."
+    },
+    {
+      "id": "training",
+      "title": "Training, Loss, dan Gradient Descent",
+      "content": "Proses melatih model berpusat pada tiga konsep:\n\n**1. Loss function** - mengukur seberapa salah model. Contoh: MSE untuk regresi, *cross-entropy* untuk klasifikasi.\n\n**2. Gradient descent** - algoritma untuk **memperkecil loss**. Bayangkan menuruni lembah: hitung kemiringan (*gradient*), lalu melangkah ke arah menurun.\n```\nw_baru = w_lama − α · ∂loss/∂w\n```\n- `α` (*learning rate*) = besar langkah.\n\nLearning rate **terlalu besar** → melompat-lompat dan tak pernah stabil. **Terlalu kecil** → belajar sangat lambat.\n\n**3. Iterasi** - proses ini diulang ribuan kali sampai loss cukup kecil.\n\nVarian modern: **Stochastic Gradient Descent (SGD)** memakai sebagian kecil data (batch) per langkah agar lebih cepat, serta **Adam** yang menyesuaikan learning rate otomatis."
+    },
+    {
+      "id": "evaluasi",
+      "title": "Evaluasi Model",
+      "content": "Model yang bagus bukan yang hafal data latih, tapi yang **mampu bekerja pada data baru**.\n\nData biasanya dibagi:\n- **Training set** (±70–80%): untuk melatih.\n- **Validation set**: untuk menyetel pengaturan (tuning).\n- **Test set**: untuk ujian akhir, hanya sekali pakai.\n\nMetrik klasifikasi (dari **confusion matrix**):\n- **Accuracy** - proporsi tebakan benar. Bisa menyesatkan bila data tidak seimbang.\n- **Precision** - dari yang diprediksi positif, berapa yang benar-benar positif.\n- **Recall** - dari semua yang benar-benar positif, berapa yang berhasil ditemukan.\n- **F1-score** - rata-rata harmonik precision & recall.\n\nUntuk regresi: **MSE**, **RMSE**, dan **MAE**.\n\nDua musuh utama:\n- **Overfitting** - bagus di data latih, buruk di data baru (terlalu hafal).\n- **Underfitting** - buruk di keduanya (model terlalu sederhana)."
+    },
+    {
+      "id": "overfitting",
+      "title": "Overfitting, Underfitting & Regularisasi",
+      "content": "Menemukan **titik seimbang** antara terlalu sederhana dan terlalu rumit adalah inti ML.\n\n**Overfitting** terjadi ketika model terlalu rumit sehingga menghafal *noise* data latih. Gejalanya: akurasi latih tinggi, akurasi validasi rendah.\n\n**Underfitting** terjadi ketika model terlalu sederhana untuk menangkap pola. Akurasi rendah di latih maupun validasi.\n\nCara mengatasi:\n- **Lebih banyak data** - cara paling ampuh.\n- **Regularisasi**: menambahkan penalti pada bobot besar.\n  - **L1 (Lasso)** - mendorong sebagian bobot menjadi nol (seleksi fitur).\n  - **L2 (Ridge)** - mengecilkan bobot agar model lebih stabil.\n- **Dropout** - mematikan sebagian neuron secara acak saat training (pada neural network).\n- **Early stopping** - berhenti saat performa validasi mulai menurun.\n- **Cross-validation** - uji pada beberapa lipatan data agar evaluasi lebih andal.\n\nAturan praktis: **mulai sederhana**, tambah kerumitan hanya bila perlu (YAGNI)."
+    },
+    {
+      "id": "preprocessing",
+      "title": "Prapemrosesan Data",
+      "content": "**\"Garbage in, garbage out\"** - kualitas data menentukan kualitas model. Sebagian besar waktu proyek ML dihabiskan untuk membersihkan data.\n\nLangkah umum:\n- **Membersihkan**: menangani nilai kosong (*missing*), duplikat, dan data tak wajar (*outlier*).\n- **Normalisasi/Standardisasi**: menyeragamkan skala fitur agar tidak ada yang mendominasi.\n  - Min-Max: ubah ke rentang 0–1.\n  - Standardisasi: ubah ke rata-rata 0, simpangan baku 1.\n- **Encoding**: mengubah data kategorikal menjadi angka.\n  - **One-hot encoding**: \"merah/biru/hijau\" → tiga kolom 0/1.\n  - **Label encoding**: memberi tiap kategori angka unik.\n- **Feature engineering**: membuat fitur baru yang lebih bermakna dari data yang ada.\n\nPrinsip penting: terapkan prapemrosesan **hanya pada data latih**, lalu pakai parameternya untuk data uji - jangan sampai data uji \"bocor\" ke proses latih (*data leakage*)."
+    },
+    {
+      "id": "tools",
+      "title": "Alat & Library ML",
+      "content": "Ekosistem ML didominasi Python karena kesederhanaan dan library-nya yang kaya.\n\n**Library populer:**\n- **NumPy** - komputasi array/matriks numerik.\n- **pandas** - manipulasi dan analisis data tabel.\n- **scikit-learn** - algoritma ML klasik (regresi, klasifikasi, clustering) siap pakai.\n- **TensorFlow** (Google) & **PyTorch** (Meta) - deep learning, jaringan saraf.\n- **Keras** - API tingkat tinggi yang ramah pemula.\n- **Matplotlib** & **Seaborn** - visualisasi data.\n\n**Lingkungan kerja:**\n- **Jupyter Notebook** - menjalankan kode sel demi sel, ideal untuk eksplorasi.\n- **Google Colab** - Jupyter gratis di cloud dengan akses GPU.\n- **Kaggle** - platform kompetisi dan dataset publik.\n\nAlur kerja khas: **pandas** bersihkan data → **scikit-learn** latih model → **Matplotlib** visualkan hasil → **PyTorch/TensorFlow** bila butuh deep learning."
+    },
+    {
+      "id": "etika-ml",
+      "title": "Tantangan & Etika dalam ML",
+      "content": "Membangun model bukan hanya soal akurasi - ada tanggung jawab.\n\nTantangan teknis:\n- **Data leakage** - informasi masa depan bocor ke data latih, membuat hasil tampak bagus padahal palsu.\n- **Imbalanced data** - misal 99% transaksi normal, 1% penipuan. Akurasi 99% bisa menyesatkan.\n- **Distribution shift** - data dunia nyata berubah, model lama jadi usang.\n\nTantangan etis:\n- **Bias & keadilan** - model bisa memperkuat diskriminasi bila datanya bias.\n- **Privasi** - data pribadi dipakai untuk melatih model.\n- **Transparansi** - model rumit sulit dijelaskan (*black box*).\n- **Akuntabilitas** - siapa bertanggung jawab atas keputusan model?\n\nPraktik baik: dokumentasikan data dan model, uji pada kelompok yang beragam, dan libatkan manusia dalam keputusan berisiko tinggi. ML adalah **alat bantu keputusan**, bukan pengganti pertimbangan manusia pada hal yang berdampak besar."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Jenis pembelajaran ML mana yang memakai data berlabel (ada jawaban benar)?",
+      "options": ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Self-supervised Learning"],
+      "answerIndex": 1,
+      "explanation": "Supervised Learning memakai data berlabel untuk memetakan input ke output yang benar."
+    },
+    {
+      "text": "Regresi linear dipakai untuk memprediksi?",
+      "options": ["Kategori", "Nilai numerik kontinu", "Warna", "Teks"],
+      "answerIndex": 1,
+      "explanation": "Regresi linear memprediksi nilai numerik kontinu, misalnya harga rumah dari luasnya."
+    },
+    {
+      "text": "Apa fungsi gradient descent dalam training model?",
+      "options": [
+        "Menambah jumlah data",
+        "Memperkecil loss dengan melangkah ke arah menurun",
+        "Menghapus neuron",
+        "Menggandakan bobot"
+      ],
+      "answerIndex": 1,
+      "explanation": "Gradient descent meminimalkan loss dengan menyesuaikan bobot ke arah yang menurunkan kesalahan."
+    },
+    {
+      "text": "Apa yang dimaksud overfitting?",
+      "options": [
+        "Model terlalu sederhana",
+        "Model bagus di data latih tapi buruk di data baru",
+        "Model tidak bisa dilatih",
+        "Model memakai terlalu sedikit fitur"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overfitting terjadi ketika model menghafal data latih sehingga gagal menggeneralisasi ke data baru."
+    },
+    {
+      "text": "Teknik apa yang mencegah overfitting dengan menambahkan penalti pada bobot besar?",
+      "options": ["Dropout", "Regularisasi (L1/L2)", "Clustering", "One-hot encoding"],
+      "answerIndex": 1,
+      "explanation": "Regularisasi L1/L2 memberi penalti pada bobot besar agar model tidak terlalu rumit dan overfitting berkurang."
+    },
+    {
+      "text": "Apa fungsi backpropagation pada jaringan saraf?",
+      "options": [
+        "Menambah lapisan",
+        "Menyesuaikan bobot neuron dengan mengalirkan gradient kesalahan mundur",
+        "Menghapus data",
+        "Memvisualisasikan data"
+      ],
+      "answerIndex": 1,
+      "explanation": "Backpropagation mengalirkan gradient kesalahan dari output ke belakang untuk menyesuaikan bobot tiap neuron."
+    }
+  ]
+}

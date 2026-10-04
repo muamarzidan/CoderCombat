@@ -1,0 +1,115 @@
+{
+  "id": "ai-tools",
+  "title": "AI Tools & Praktik",
+  "summary": "Mengenal alat AI generatif, cara memakainya secara produktif, aman, dan bertanggung jawab.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Lanskap Alat AI Hari Ini",
+      "content": "AI generatif kini tersedia dalam banyak bentuk alat yang mudah dipakai. Secara garis besar:\n\n- **Chatbot & asisten teks**: ChatGPT, Claude, Gemini, Copilot - menjawab pertanyaan, menulis, meringkas, menjelaskan kode.\n- **Pembuat gambar**: DALL·E, Midjourney, Stable Diffusion - membuat gambar dari deskripsi teks.\n- **Pembuat video & audio**: alat yang menghasilkan klip, sulih suara, musik.\n- **Asisten kode**: GitHub Copilot, Cursor - membantu menulis dan menjelaskan program.\n- **Pencarian berbasis AI**: menjawab pertanyaan langsung dari sumber web.\n\nSemua ini dibangun di atas model besar yang dilatih dari data dalam jumlah sangat besar. Mereka **memprediksi** keluaran yang paling mungkin - bukan \"mencari\" jawaban di database. Memahami hal ini penting agar kita tahu kapan hasilnya bisa salah."
+    },
+    {
+      "id": "llm",
+      "title": "Model Bahasa Besar (LLM)",
+      "content": "**LLM (Large Language Model)** adalah model bahasa dengan jumlah parameter sangat besar (miliaran hingga triliunan) yang dilatih dari teks dalam jumlah masif.\n\nCara kerjanya secara sederhana: model **memprediksi token berikutnya**. Diberi teks \"Ibu kota Indonesia adalah\", model menghitung token yang paling mungkin setelahnya (\"Jakarta\"). Diulang terus, ia menghasilkan kalimat panjang.\n\nKemampuan ini muncul dari **skala** - model besar belajar pola tata bahasa, fakta, gaya bahasa, hingga penalaran sederhana dari data.\n\nIstilah penting:\n- **Parameter** - \"bobot\" internal model yang disesuaikan saat latihan.\n- **Token** - satuan teks (bisa kata atau potongan kata).\n- **Context window** - seberapa banyak teks yang bisa \"diingat\" model sekaligus dalam satu percakapan.\n- **Prompt** - instruksi yang kita berikan.\n\nKarena hanya memprediksi pola, LLM bisa **halusinasi** - menghasilkan jawaban salah dengan sangat meyakinkan."
+    },
+    {
+      "id": "prompting",
+      "title": "Prompt Engineering",
+      "content": "**Prompt engineering** adalah seni menyusun instruksi agar AI memberi hasil terbaik.\n\nPrinsip dasar:\n- **Jelas dan spesifik** - sebutkan peran, tujuan, format, dan batasan.\n- **Beri konteks** - AI tidak tahu apa yang ada di kepalamu.\n- **Tunjukkan contoh** - *few-shot*: beri 1–3 contoh keluaran yang diinginkan.\n- **Tentukan format** - minta output berupa daftar, tabel, atau JSON.\n- **Minta langkah bertahap** - untuk masalah rumit, minta AI \"berpikir langkah demi langkah\".\n\nContoh prompt lemah: \"Buat ringkasan.\"\nContoh prompt kuat: \"Ringkas artikel berikut dalam 5 poin, bahasa Indonesia formal, tiap poin maksimal 15 kata, fokus pada dampak ekonomi.\"\n\nTeknik lanjutan: **chain-of-thought** (minta penalaran bertahap), **role prompting** (\"kamu adalah guru fisika\"), dan **iterasi** - perbaiki prompt berdasarkan hasil, jangan puas dengan percobaan pertama."
+    },
+    {
+      "id": "generative",
+      "title": "AI Generatif: Gambar & Konten",
+      "content": "**AI generatif** membuat konten baru (gambar, teks, audio, video) dari deskripsi.\n\nUntuk gambar, prompt biasanya memuat:\n- **Subjek** - apa yang digambar.\n- **Gaya** - \"cat air\", \"fotorealistis\", \"pixel art\".\n- **Komposisi** - sudut, pencahayaan, latar.\n\nTeknik pada gambar:\n- **Inpainting** - mengisi/mengubah bagian tertentu gambar.\n- **Outpainting** - memperluas gambar ke luar batas aslinya.\n- **Image-to-image** - mengubah gaya gambar yang ada.\n\n**Difusi (diffusion)** adalah teknik utama di balik banyak pembuat gambar: model belajar membalik proses penambahan noise, sehingga dari noise acak ia \"membersihkan\" gambar sedikit demi sedikit hingga terbentuk citra sesuai prompt.\n\nCatatan penting: perhatikan **hak cipta** dan **atribusi**. Jangan mengklaim karya AI sebagai sepenuhnya buatanmu bila aturan lomba atau lembaga mensyaratkan sebaliknya."
+    },
+    {
+      "id": "produktivitas",
+      "title": "AI untuk Produktivitas Belajar",
+      "content": "AI bisa menjadi tutor dan asisten yang sangat membantu bila dipakai dengan tepat.\n\nCara produktif:\n- **Menjelaskan konsep** - \"jelaskan rekursi seperti saya pemula, pakai analogi\".\n- **Meringkas** - ubah bacaan panjang menjadi poin penting.\n- **Membuat latihan** - minta AI menyusun soal latihan beserta jawabannya.\n- **Uji pemahaman** - minta AI mengajukan pertanyaan dan menilai jawabanmu (Feynman technique).\n- **Menjelaskan kode** - pahami program yang membingungkan.\n- **Brainstorming** - cari ide dari berbagai sudut.\n\nKebiasaan sehat:\n- **Verifikasi** fakta penting dari sumber terpercaya - AI bisa salah.\n- **Jangan menyalin mentah** - pahami dulu, baru tulis ulang dengan bahasamu.\n- **Pakai sebagai pemandu**, bukan pengganti proses belajar. Otak yang terbiasa berpikir sendiri tetap yang paling tajam.\n\nAI adalah **akselerator belajar**, bukan jalan pintas menuju pemahaman."
+    },
+    {
+      "id": "coding-assist",
+      "title": "AI untuk Membantu Ngoding",
+      "content": "Asisten kode (GitHub Copilot, Cursor, dsb.) mempercepat penulisan program, tetapi harus dipakai dengan bijak.\n\nManfaat:\n- **Autocomplete** - menyarankan baris kode berikutnya.\n- **Menjelaskan kode** yang asing.\n- **Menulis tes** dan boilerplate.\n- **Menemukan bug** dan mengusulkan perbaikan.\n- **Menerjemahkan** kode antar bahasa.\n\nRisiko:\n- Kode yang **terdengar benar namun salah** - selalu baca dan pahami.\n- **Kerentanan keamanan** yang tak disadari (misalnya menaruh rahasia di kode).\n- **Ketergantungan** - kemampuan dasar memecahkan masalah bisa tumpul bila selalu diserahkan ke AI.\n\nAlur kerja aman: **tulis dulu rencananya**, minta AI bantu bagian spesifik, **uji dan pahami** hasilnya, lalu rapikan sesuai standar proyek. Untuk hal keamanan, jangan pernah menaruh kredensial asli di prompt atau kode."
+    },
+    {
+      "id": "tool-use",
+      "title": "AI Agent & Tool Use",
+      "content": "**AI agent** adalah AI yang tidak hanya menjawab, tetapi **menjalankan tugas bertahap** - mencari informasi, memakai alat, lalu bertindak.\n\nKunci kemampuannya adalah **tool use**: model dapat memanggil alat eksternal seperti:\n- Pencarian web.\n- Kalkulator.\n- Membaca/menulis file.\n- Memanggil API.\n- Menjalankan kode.\n\nAlurnya berulang: **pikir → pilih alat → jalankan → amati hasil → pikir lagi** hingga tugas selesai.\n\nContoh: \"Carikan 3 artikel tentang AI di bidang pendidikan, rangkum tiap artikel.\" Agent akan mencari, membuka halaman, membaca, lalu menyusun ringkasan - bukan sekadar menebak dari ingatan.\n\nRisiko yang perlu diwaspadai:\n- **Prompt injection** - instruksi berbahaya tersembunyi di halaman web yang dibaca agent.\n- **Tindakan tak diinginkan** - agent yang punya akses luas bisa salah bertindak.\n- **Halusinasi** tetap bisa muncul saat menggabungkan informasi.\n\nPrinsip: beri agent **akses seperlunya**, dan tetap **verifikasi** hasil penting."
+    },
+    {
+      "id": "etika-tools",
+      "title": "Etika, Privasi & Keamanan",
+      "content": "Memakai alat AI membawa tanggung jawab.\n\n**Privasi:**\n- Jangan memasukkan **data pribadi, rahasia, atau kredensial** ke layanan publik - percakapan bisa disimpan atau dipakai untuk pelatihan.\n- Hati-hati membagikan dokumen internal ke alat pihak ketiga.\n\n**Etika:**\n- **Jujur soal penggunaan AI** bila konteksnya mensyaratkan (lomba, tugas sekolah).\n- **Hormati hak cipta** - hasil AI bisa menyerupai karya orang lain.\n- **Jangan menyebarkan disinformasi** - verifikasi sebelum membagikan.\n\n**Keamanan:**\n- Waspadai **prompt injection** - teks di web/dokumen bisa berisi perintah tersembunyi.\n- Curigai hasil yang meminta tindakan berbahaya atau mencurigakan.\n- Jaga perangkat dan akun dengan kata sandi kuat serta autentikasi dua faktor.\n\nGaris besar: **perlakukan AI seperti rekan kerja baru** - membantu dan cepat, tapi belum tentu tahu rahasia perusahaan, dan tidak selalu benar."
+    },
+    {
+      "id": "verifikasi",
+      "title": "Verifikasi & Berpikir Kritis",
+      "content": "Keterampilan paling penting saat memakai AI adalah **memverifikasi** dan **berpikir kritis**.\n\nMengapa AI bisa salah:\n- Ia memprediksi teks yang **terdengar** benar, bukan yang **benar**.\n- Data latihnya punya batas waktu dan bisa mengandung kesalahan.\n- Ia bisa \"percaya diri\" meski keliru (**halusinasi**).\n\nCara memverifikasi:\n- **Cek sumber** - cari referensi terpercaya (buku, jurnal, dokumentasi resmi).\n- **Bandingkan** jawaban AI dengan sumber independen.\n- **Uji logika** - apakah kesimpulannya masuk akal?\n- **Minta AI menyebut sumber**, lalu periksa apakah sumbernya benar-benar ada.\n\nSikap sehat:\n- Gunakan AI sebagai **titik awal**, bukan kebenaran akhir.\n- Jangan biarkan AI menggantikan **penalaran**mu.\n- Ketika ragu, **tanya manusia ahli** - guru, mentor, atau profesional.\n\nDi era AI, kemampuan berpikir kritis justru makin berharga, bukan berkurang."
+    },
+    {
+      "id": "masa-depan-tools",
+      "title": "Masa Depan & Peluang",
+      "content": "Alat AI terus berkembang cepat. Memahaminya membuka peluang.\n\nTren yang terlihat:\n- **Multimodal** - satu model memahami teks, gambar, suara, dan video sekaligus.\n- **On-device AI** - model kecil yang berjalan langsung di ponsel tanpa internet.\n- **AI personal** - asisten yang mengenal konteks dan preferensimu.\n- **Kolaborasi manusia-AI** - AI menangani tugas berulang, manusia fokus pada kreativitas dan keputusan.\n\nPeluang karier & keterampilan:\n- **Prompt engineering** - merancang instruksi efektif.\n- **AI engineering** - membangun aplikasi di atas model.\n- **Data science & ML** - mengolah data dan melatih model.\n- **AI ethics & governance** - memastikan AI dipakai secara adil dan aman.\n\nYang tetap penting: **dasar berpikir** (logika, matematika, algoritma) dan **kemampuan belajar terus-menerus**. Teknologi berganti cepat, tetapi pondasi berpikir tidak pernah usang. Mulailah dari rasa ingin tahu - seperti yang membawamu belajar modul ini."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Secara sederhana, apa yang dilakukan sebuah LLM saat menghasilkan teks?",
+      "options": [
+        "Mencari jawaban di database",
+        "Memprediksi token berikutnya secara berurutan",
+        "Menghitung dengan kalkulator",
+        "Membaca pikiran pengguna"
+      ],
+      "answerIndex": 1,
+      "explanation": "LLM memprediksi token berikutnya yang paling mungkin, lalu mengulanginya untuk menyusun teks."
+    },
+    {
+      "text": "Apa itu 'context window' pada model bahasa?",
+      "options": [
+        "Ukuran layar aplikasi",
+        "Jumlah teks yang bisa diproses/diingat model sekaligus",
+        "Jumlah pengguna",
+        "Kecepatan internet"
+      ],
+      "answerIndex": 1,
+      "explanation": "Context window adalah batas jumlah teks (token) yang bisa diproses model dalam satu waktu."
+    },
+    {
+      "text": "Teknik memberi beberapa contoh keluaran yang diinginkan di dalam prompt disebut?",
+      "options": ["Zero-shot", "Few-shot", "Fine-tuning", "Dropout"],
+      "answerIndex": 1,
+      "explanation": "Few-shot prompting memberi beberapa contoh agar model meniru pola keluaran yang diinginkan."
+    },
+    {
+      "text": "Teknik utama di balik banyak pembuat gambar AI adalah?",
+      "options": ["Diffusion", "Clustering", "Regresi linear", "Backpropagation"],
+      "answerIndex": 0,
+      "explanation": "Model difusi belajar membalik proses noise sehingga menghasilkan gambar dari noise acak sesuai prompt."
+    },
+    {
+      "text": "Apa itu 'prompt injection' yang perlu diwaspadai pada AI agent?",
+      "options": [
+        "Menambahkan gambar ke prompt",
+        "Instruksi berbahaya tersembunyi di konten yang dibaca agent",
+        "Mempercepat respons AI",
+        "Mengubah bahasa model"
+      ],
+      "answerIndex": 1,
+      "explanation": "Prompt injection adalah instruksi berbahaya yang disisipkan di web/dokumen yang dibaca agent untuk membajak perilakunya."
+    },
+    {
+      "text": "Manakah praktik yang paling tepat saat memakai alat AI untuk belajar?",
+      "options": [
+        "Menyalin jawaban AI tanpa membacanya",
+        "Memverifikasi fakta penting dari sumber terpercaya",
+        "Memasukkan data rahasia agar jawabannya akurat",
+        "Percaya sepenuhnya karena AI selalu benar"
+      ],
+      "answerIndex": 1,
+      "explanation": "AI bisa salah (halusinasi), jadi hasil penting harus diverifikasi dari sumber terpercaya."
+    }
+  ]
+}

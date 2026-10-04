@@ -1,0 +1,110 @@
+{
+  "id": "ai-dasar",
+  "title": "Kecerdasan Artifisial (AI) Dasar",
+  "summary": "Konsep dasar kecerdasan artifisial: sejarah, jenis, cara kerja, dan penerapannya.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu Kecerdasan Artifisial?",
+      "content": "**Kecerdasan Artifisial** (*Artificial Intelligence*, AI) adalah cabang ilmu komputer yang berupaya membuat mesin mampu melakukan tugas yang biasanya memerlukan kecerdasan manusia - seperti mengenali gambar, memahami bahasa, mengambil keputusan, atau bermain strategi.\n\nIstilah \"Artificial Intelligence\" dipopulerkan pada konferensi **Dartmouth** tahun **1956**, yang sering dianggap sebagai titik lahir bidang ini. Perintisnya antara lain **John McCarthy**, **Marvin Minsky**, **Allen Newell**, dan **Herbert Simon**.\n\nAI bukan satu teknologi tunggal, melainkan payung besar yang menaungi banyak pendekatan:\n- **Machine Learning** (belajar dari data).\n- **Deep Learning** (jaringan saraf berlapis banyak).\n- **Natural Language Processing** (memahami bahasa manusia).\n- **Computer Vision** (memahami gambar/video).\n- **Robotics**, **planning**, dan lain-lain."
+    },
+    {
+      "id": "sejarah",
+      "title": "Sejarah Singkat AI",
+      "content": "Perjalanan AI penuh pasang-surut:\n\n- **1950**: **Alan Turing** menulis makalah *\"Computing Machinery and Intelligence\"* dan mengusulkan **Turing Test** - uji apakah mesin bisa berperilaku tak terbedakan dari manusia dalam percakapan.\n- **1956**: Konferensi **Dartmouth** - istilah \"Artificial Intelligence\" resmi dipakai.\n- **1960–70-an**: Antusiasme besar, lalu datang **\"AI Winter\"** pertama ketika janji-janji tak terwujud.\n- **1980-an**: Kebangkitan lewat **sistem pakar** (*expert systems*), lalu surut lagi.\n- **1997**: Komputer **Deep Blue** (IBM) mengalahkan juara catur dunia **Garry Kasparov**.\n- **2012**: Jaringan saraf **AlexNet** memenangkan kompetisi pengenalan gambar ImageNet - tonggak kebangkitan *deep learning*.\n- **2016**: **AlphaGo** (DeepMind) mengalahkan juara Go dunia Lee Sedol.\n- **2017**: Arsitektur **Transformer** diperkenalkan dalam makalah *\"Attention Is All You Need\"* - dasar model bahasa modern.\n- **2020-an**: Munculnya model bahasa besar (LLM) seperti GPT yang membuat AI generatif meledak."
+    },
+    {
+      "id": "jenis",
+      "title": "Jenis-jenis AI",
+      "content": "Berdasarkan kemampuan, AI sering dibagi tiga tingkat:\n\n**1. AI Sempit (*Narrow AI*)** - mampu mengerjakan **satu tugas spesifik** dengan baik. Contoh: pengenal wajah, rekomendasi film, penerjemah bahasa. **Semua AI yang ada saat ini termasuk kategori ini.**\n\n**2. AI Umum (*General AI / AGI*)** - hipotetis, mampu memahami dan belajar **tugas apa pun** seperti manusia. **Belum terwujud.**\n\n**3. Super AI (*Superintelligence*)** - hipotetis, melampaui kecerdasan manusia di semua bidang. Masih sepenuhnya spekulatif.\n\nCara lain membedakan AI berdasarkan fungsinya:\n- **Reactive**: bereaksi pada situasi sekarang (misal program catur sederhana).\n- **Limited memory**: memakai sebagian riwayat (misal mobil otonom).\n- **Theory of mind** dan **self-aware**: masih konseptual.\n\nPenting dipahami: ketika berita menyebut \"AI mengancam manusia\", umumnya merujuk pada **AGI/super AI** yang belum ada - bukan AI sempit yang kita pakai sehari-hari."
+    },
+    {
+      "id": "ai-vs-ml",
+      "title": "Hubungan AI, Machine Learning, dan Deep Learning",
+      "content": "Ketiga istilah ini sering tertukar, padahal saling bertingkat seperti **matryoshka**:\n\n```\nAI  ⊃  Machine Learning  ⊃  Deep Learning\n```\n\n- **AI** adalah payung terluas - segala usaha membuat mesin \"cerdas\".\n- **Machine Learning (ML)** adalah **salah satu cara** mencapai AI: mesin belajar dari data, bukan diprogram aturan satu per satu.\n- **Deep Learning (DL)** adalah **bagian dari ML** yang memakai **jaringan saraf berlapis banyak** (*neural networks*).\n\nAnalogi: AI adalah \"olahraga\", ML adalah \"sepak bola\", DL adalah \"strategi penyerangan tertentu\". Semua DL adalah ML, semua ML adalah AI - tetapi tidak semua AI adalah ML.\n\nContoh AI yang **bukan** ML: sistem pakar berbasis aturan `if-else` yang ditulis manusia secara manual."
+    },
+    {
+      "id": "cara-kerja",
+      "title": "Bagaimana AI \"Belajar\"?",
+      "content": "Berbeda dari program biasa, AI modern tidak diberi aturan eksplisit. Ia **belajar dari contoh**.\n\nProgram tradisional:\n```\nAturan + Data  →  Jawaban\n```\nMachine Learning:\n```\nData + Jawaban  →  Aturan (model)\n```\n\nContoh: untuk membuat pengenal email spam, kita tidak menulis ratusan aturan kata. Kita beri ribuan email berlabel \"spam\" dan \"bukan spam\", lalu algoritma menemukan **pola** sendiri.\n\nProses umumnya:\n1. **Kumpulkan data** (banyak dan beragam).\n2. **Latih model** - model menyesuaikan parameter agar tebakannya makin akurat.\n3. **Evaluasi** pada data yang belum pernah dilihat.\n4. **Gunakan** model untuk memprediksi data baru.\n\nInti ML adalah **generalisasi**: mampu menebak benar pada data baru, bukan hanya menghafal data latihan."
+    },
+    {
+      "id": "nlp",
+      "title": "Pemrosesan Bahasa Alami (NLP)",
+      "content": "**Natural Language Processing (NLP)** adalah bidang AI yang membuat komputer memahami dan menghasilkan **bahasa manusia**.\n\nContoh penerapan:\n- Penerjemahan otomatis (Google Translate).\n- Chatbot dan asisten virtual.\n- Analisis sentimen (positif/negatif sebuah ulasan).\n- Ringkasan teks dan penjawaban pertanyaan.\n\nTantangan NLP: bahasa manusia penuh **ambiguitas**, konteks, sindiran, dan makna tersirat. Kata \"bisa\" bisa berarti \"mampu\" atau \"racun ular\" - hanya konteks yang menentukan.\n\nLompatan besar terjadi dengan arsitektur **Transformer** (2017) yang memakai mekanisme **attention** untuk memahami hubungan antar kata dalam konteks. Inilah dasar model bahasa besar (LLM) modern seperti GPT, Claude, dan Gemini.\n\n**Token** adalah satuan teks (kata atau potongan kata) yang diproses model. Model memprediksi token berikutnya berdasarkan token sebelumnya."
+    },
+    {
+      "id": "vision",
+      "title": "Computer Vision",
+      "content": "**Computer Vision** membuat komputer \"melihat\" dan memahami gambar atau video.\n\nTugas utama:\n- **Klasifikasi** - menentukan isi gambar (kucing? anjing?).\n- **Deteksi objek** - menemukan lokasi objek dalam gambar (kotak pembatas/*bounding box*).\n- **Segmentasi** - memisahkan setiap piksel menurut objeknya.\n- **Pengenalan wajah** dan **pelacakan objek**.\n\nCara kerja dasarnya: gambar diubah menjadi **angka**. Setiap piksel punya nilai warna (misal 0–255 untuk tiap kanal merah/hijau/biru). Model **Convolutional Neural Network (CNN)** memakai *filter* yang bergeser di atas gambar untuk mendeteksi pola - tepi, tekstur, bentuk, lalu objek.\n\nPenerapan nyata: kamera ponsel, mobil otonom, diagnosis medis dari citra rontgen, hingga sensor di pabrik."
+    },
+    {
+      "id": "penerapan",
+      "title": "Penerapan AI di Kehidupan",
+      "content": "AI sudah ada di sekitar kita, sering tanpa kita sadari:\n\n- **Rekomendasi**: Netflix, YouTube, Spotify, marketplace memilih konten yang mungkin kita sukai.\n- **Pencarian & peta**: Google Search, Google Maps menghitung rute terbaik.\n- **Asisten suara**: Siri, Google Assistant, Alexa.\n- **Filter spam**: email masuk tersaring otomatis.\n- **Kesehatan**: mendeteksi penyakit dari citra medis, mempercepat penemuan obat.\n- **Keuangan**: deteksi penipuan (*fraud*) kartu kredit secara real-time.\n- **Transportasi**: mobil otonom, prediksi lalu lintas.\n- **Kreatif**: pembuat gambar, musik, dan teks.\n- **Pertanian**: memantau kesehatan tanaman dari drone.\n\nPola umumnya: AI unggul pada tugas **berpola berulang dalam data besar** - mengklasifikasi, memprediksi, dan mengenali."
+    },
+    {
+      "id": "etika",
+      "title": "Etika dan Bias AI",
+      "content": "AI bukan netral - ia mencerminkan data yang dipakai melatihnya. Ini memunculkan isu penting:\n\n- **Bias**: bila data latih tidak seimbang, model bisa diskriminatif. Contoh terkenal: sistem rekrutmen berbasis AI yang merugikan pelamar perempuan karena dilatih dari data historis yang bias.\n- **Privasi**: model dilatih dari data orang - bagaimana melindungi privasi?\n- **Transparansi**: banyak model canggih bersifat **\"black box\"** - sulit dijelaskan mengapa ia mengambil keputusan tertentu.\n- **Akuntabilitas**: siapa yang bertanggung jawab bila AI salah, misalnya pada mobil otonom?\n- **Dampak kerja**: otomatisasi mengubah lapangan kerja.\n\nPrinsip **AI yang bertanggung jawab** (*responsible AI*): adil, transparan, aman, menjaga privasi, dan dapat dipertanggungjawabkan.\n\nSebagai pengguna dan calon pembuat, kita perlu **kritis**: AI adalah alat, bukan kebenaran mutlak. Keputusan penting tetap butuh pertimbangan manusia."
+    },
+    {
+      "id": "masa-depan",
+      "title": "Tantangan dan Masa Depan AI",
+      "content": "AI berkembang sangat cepat, tetapi tetap punya keterbatasan:\n\n- **Halusinasi**: model bahasa bisa menghasilkan informasi yang **terdengar meyakinkan namun salah**. Jangan telan mentah.\n- **Ketergantungan data**: kualitas hasil sebatas kualitas data.\n- **Biaya komputasi**: melatih model besar butuh energi dan biaya besar.\n- **Overfitting**: model menghafal data latih dan gagal pada data baru.\n- **Keamanan**: model bisa dieksploitasi (*prompt injection*, manipulasi input).\n\nArah perkembangan:\n- **Model multimodal** yang memahami teks, gambar, suara, video sekaligus.\n- **AI agent** yang bisa menjalankan tugas berurutan secara mandiri.\n- **AI efisien** yang berjalan di perangkat (on-device) tanpa internet.\n\nYang pasti: memahami **cara kerja dan batas** AI menjadi keterampilan penting di era ini - bukan sekadar bisa memakainya, tetapi mengerti kapan mempercayainya dan kapan tidak."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Siapa yang mengusulkan 'Turing Test' pada tahun 1950?",
+      "options": ["John McCarthy", "Alan Turing", "Marvin Minsky", "Geoffrey Hinton"],
+      "answerIndex": 1,
+      "explanation": "Alan Turing mengusulkan Turing Test dalam makalahnya tahun 1950 sebagai uji kecerdasan mesin."
+    },
+    {
+      "text": "Apa jenis AI yang ada saat ini?",
+      "options": ["Super AI", "General AI (AGI)", "Narrow AI (AI sempit)", "Self-aware AI"],
+      "answerIndex": 2,
+      "explanation": "Semua AI yang ada sekarang adalah Narrow AI - mampu mengerjakan tugas spesifik, bukan AGI."
+    },
+    {
+      "text": "Bagaimana hubungan Deep Learning terhadap Machine Learning?",
+      "options": [
+        "Deep Learning lebih luas dari Machine Learning",
+        "Deep Learning adalah bagian dari Machine Learning",
+        "Keduanya tidak berhubungan",
+        "Machine Learning adalah bagian dari Deep Learning"
+      ],
+      "answerIndex": 1,
+      "explanation": "Deep Learning adalah subset Machine Learning yang memakai jaringan saraf berlapis banyak."
+    },
+    {
+      "text": "Apa yang dimaksud 'halusinasi' pada model AI bahasa?",
+      "options": [
+        "Model menolak menjawab",
+        "Model menghasilkan informasi yang terdengar meyakinkan namun salah",
+        "Model berhenti bekerja",
+        "Model menerjemahkan bahasa"
+      ],
+      "answerIndex": 1,
+      "explanation": "Halusinasi adalah ketika model menghasilkan informasi yang tampak benar namun faktanya keliru."
+    },
+    {
+      "text": "Arsitektur apa (2017) yang menjadi dasar model bahasa besar modern seperti GPT?",
+      "options": ["CNN", "RNN", "Transformer", "GAN"],
+      "answerIndex": 2,
+      "explanation": "Arsitektur Transformer dari makalah 'Attention Is All You Need' (2017) adalah dasar LLM modern."
+    },
+    {
+      "text": "Mengapa AI bisa bersifat diskriminatif (bias)?",
+      "options": [
+        "Karena AI punya emosi",
+        "Karena data latihnya tidak seimbang atau mencerminkan bias historis",
+        "Karena AI sengaja dibuat jahat",
+        "Karena AI tidak punya listrik"
+      ],
+      "answerIndex": 1,
+      "explanation": "Bias AI berasal dari data latih yang tidak representatif atau mengandung bias historis."
+    }
+  ]
+}

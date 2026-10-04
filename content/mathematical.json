@@ -1,0 +1,120 @@
+{
+  "id": "mathematical",
+  "title": "Mathematical & Logical Thinking",
+  "summary": "Pelajari konsep matematika dan logika yang menjadi dasar untuk memahami data, kondisi, perhitungan, pola, dan operasi dalam programming.",
+  "units": [
+    {
+      "id": "angka-dan-operasi",
+      "title": "Angka dan Operasi Aritmatika",
+      "content": "Programming sering menggunakan operasi aritmatika untuk melakukan perhitungan terhadap data numerik.\n\nOperasi dasar meliputi:\n- Penjumlahan (+)\n- Pengurangan (-)\n- Perkalian (*)\n- Pembagian (/)\n\nContoh:\n\n```text\n10 + 5 = 15\n10 - 5 = 5\n10 × 5 = 50\n10 ÷ 5 = 2\n```\n\nDalam programming, operasi ini dapat digunakan untuk menghitung harga, jumlah item, skor, ukuran, waktu, dan berbagai data numerik lainnya."
+    },
+    {
+      "id": "urutan-operasi",
+      "title": "Urutan Operasi",
+      "content": "Ketika sebuah ekspresi memiliki beberapa operasi, urutan evaluasi dapat memengaruhi hasil.\n\nSecara umum, perkalian dan pembagian dievaluasi sebelum penjumlahan dan pengurangan. Tanda kurung dapat digunakan untuk menentukan bagian yang harus dihitung terlebih dahulu.\n\nContoh:\n\n2 + 3 × 4 = 14\n\nSedangkan:\n\n(2 + 3) × 4 = 20\n\nMemahami urutan operasi penting ketika menerjemahkan rumus matematika menjadi kode."
+    },
+    {
+      "id": "pecahan-desimal-persentase",
+      "title": "Pecahan, Desimal, dan Persentase",
+      "content": "Pecahan, desimal, dan persentase dapat menyatakan nilai yang sama dalam bentuk berbeda.\n\nContoh:\n\n1/2 = 0,5 = 50%\n\nPersentase sering digunakan dalam program untuk diskon, statistik, nilai ujian, progress, dan perhitungan lainnya.\n\nContoh diskon 20% dari harga 100.000:\n\nDiskon = 20/100 × 100.000 = 20.000\nHarga akhir = 100.000 - 20.000 = 80.000"
+    },
+    {
+      "id": "perbandingan",
+      "title": "Perbandingan dan Relasi",
+      "content": "Perbandingan digunakan untuk menentukan hubungan antara dua nilai.\n\nRelasi perbandingan yang umum:\n- Lebih besar (>)\n- Lebih kecil (<)\n- Lebih besar atau sama dengan (>=)\n- Lebih kecil atau sama dengan (<=)\n- Sama dengan (=)\n- Tidak sama dengan (≠)\n\nDalam programming, operator perbandingan digunakan untuk menghasilkan kondisi yang dapat bernilai benar atau salah.\n\nContoh:\n\n```javascript\nnilai >= 75\n```\n\nEkspresi tersebut dapat digunakan untuk memeriksa apakah nilai memenuhi batas minimum 75."
+    },
+    {
+      "id": "modulo",
+      "title": "Modulo dan Sisa Pembagian",
+      "content": "Modulo adalah operasi yang menghasilkan sisa dari pembagian bilangan bulat.\n\nContoh:\n\n17 mod 5 = 2\n\nKarena 17 dibagi 5 menghasilkan 3 dengan sisa 2.\n\nDalam banyak bahasa pemrograman, modulo ditulis menggunakan operator `%`.\n\n```javascript\n17 % 5 // 2\n```\n\nModulo sering digunakan untuk memeriksa apakah sebuah bilangan habis dibagi bilangan tertentu.\n\nContoh:\n\n```javascript\nangka % 2 === 0\n```\n\nKondisi tersebut dapat digunakan untuk memeriksa bilangan genap."
+    },
+    {
+      "id": "bilangan-negatif",
+      "title": "Bilangan Positif dan Negatif",
+      "content": "Bilangan dapat memiliki nilai positif, negatif, atau nol.\n\nContoh:\n\n- 10 adalah positif\n- -10 adalah negatif\n- 0 bukan bilangan positif maupun negatif\n\nKonsep ini berguna dalam berbagai masalah programming seperti perubahan saldo, koordinat, suhu, pergerakan, dan perhitungan selisih."
+    },
+    {
+      "id": "aljabar-dasar",
+      "title": "Aljabar Dasar",
+      "content": "Aljabar menggunakan simbol atau variabel untuk mewakili nilai.\n\nContoh:\n\nx + 5 = 12\n\nUntuk menemukan x:\n\nx = 12 - 5\nx = 7\n\nDalam programming, variabel memiliki peran yang mirip dalam arti bahwa variabel digunakan untuk menyimpan atau merepresentasikan nilai yang dapat digunakan dalam perhitungan.\n\nContoh:\n\n```javascript\nconst price = 100000;\nconst quantity = 3;\nconst total = price * quantity;\n```"
+    },
+    {
+      "id": "fungsi-matematika",
+      "title": "Konsep Fungsi",
+      "content": "Dalam matematika, fungsi memetakan input ke output berdasarkan suatu aturan.\n\nContoh:\n\nf(x) = 2x + 1\n\nJika x = 3:\n\nf(3) = 2(3) + 1 = 7\n\nKonsep fungsi sangat penting dalam programming karena fungsi juga dapat menerima input, melakukan proses, dan menghasilkan output.\n\nNamun, fungsi dalam matematika dan fungsi dalam programming bukan konsep yang sepenuhnya identik. Programming function dapat memiliki efek samping dan perilaku lain yang tidak termasuk dalam definisi fungsi matematika."
+    },
+    {
+      "id": "logika-proposisi",
+      "title": "Logika dan Proposisi",
+      "content": "Proposisi adalah pernyataan yang dapat dinilai benar atau salah.\n\nContoh:\n\n\"5 lebih besar dari 3\" adalah proposisi yang bernilai benar.\n\n\"5 lebih kecil dari 3\" adalah proposisi yang bernilai salah.\n\nDalam programming, kondisi boolean juga memiliki dua nilai dasar: true dan false.\n\nContoh:\n\n```javascript\nconst isAdult = age >= 18;\n```\n\nJika age adalah 20, ekspresi tersebut bernilai true."
+    },
+    {
+      "id": "operator-logika",
+      "title": "AND, OR, dan NOT",
+      "content": "Operator logika digunakan untuk menggabungkan atau membalik kondisi.\n\nAND berarti kedua kondisi harus benar.\n\nContoh:\n\nA = benar\nB = benar\nA AND B = benar\n\nJika salah satu kondisi bernilai salah, hasil AND bernilai salah.\n\nOR bernilai benar jika setidaknya satu kondisi benar.\n\nNOT membalik nilai logika:\n\nNOT true = false\nNOT false = true\n\nDalam JavaScript, operator yang umum digunakan adalah:\n- && untuk AND\n- || untuk OR\n- ! untuk NOT"
+    },
+    {
+      "id": "tabel-kebenaran",
+      "title": "Tabel Kebenaran",
+      "content": "Tabel kebenaran digunakan untuk menunjukkan hasil operasi logika dari berbagai kombinasi nilai boolean.\n\nUntuk AND:\n\n```text\nA      B      A AND B\nfalse  false  false\nfalse  true   false\ntrue   false  false\ntrue   true   true\n```\n\nUntuk OR:\n\n```text\nA      B      A OR B\nfalse  false  false\nfalse  true   true\ntrue   false  true\ntrue   true   true\n```\n\nTabel kebenaran membantu memahami bagaimana kondisi gabungan bekerja."
+    },
+    {
+      "id": "himpunan-dasar",
+      "title": "Konsep Himpunan",
+      "content": "Himpunan adalah kumpulan objek yang didefinisikan dengan jelas.\n\nContoh:\n\nA = {1, 2, 3, 4}\n\nSalah satu konsep penting adalah keanggotaan: apakah sebuah elemen termasuk dalam suatu himpunan.\n\nKonsep himpunan menjadi dasar bagi beberapa struktur dan operasi dalam ilmu komputer, seperti set, pencarian keanggotaan, union, intersection, dan difference.\n\nContoh:\n\nA = {1, 2, 3}\nB = {3, 4, 5}\n\nIntersection A dan B = {3}"
+    },
+    {
+      "id": "pola-dan-barisan",
+      "title": "Pola dan Barisan",
+      "content": "Pola adalah keteraturan yang dapat ditemukan pada suatu kumpulan nilai atau kejadian.\n\nContoh:\n\n2, 4, 6, 8, 10\n\nSetiap nilai bertambah 2.\n\nContoh lain:\n\n1, 2, 4, 8, 16\n\nSetiap nilai dikalikan 2.\n\nMengenali pola membantu dalam problem solving, analisis data, dan memahami algoritma."
+    },
+    {
+      "id": "binary-dasar",
+      "title": "Bilangan Biner",
+      "content": "Komputer menggunakan representasi data berbasis biner pada tingkat digital, yang menggunakan dua simbol dasar: 0 dan 1.\n\nDalam sistem bilangan desimal, kita menggunakan basis 10. Dalam sistem biner, basisnya adalah 2.\n\nContoh:\n\n101 dalam biner = 1×2² + 0×2¹ + 1×2⁰ = 5 dalam desimal.\n\nMemahami konsep biner membantu memberikan dasar untuk memahami bagaimana nilai dapat direpresentasikan dalam komputer, meskipun programmer tidak selalu perlu melakukan konversi biner secara manual."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Berapa hasil dari 2 + 3 × 4?",
+      "options": ["20", "14", "24", "9"],
+      "answerIndex": 1,
+      "explanation": "Perkalian dilakukan sebelum penjumlahan, sehingga 3 × 4 = 12 dan 2 + 12 = 14."
+    },
+    {
+      "text": "Berapa hasil dari 17 % 5?",
+      "options": ["1", "2", "3", "5"],
+      "answerIndex": 1,
+      "explanation": "17 dibagi 5 menghasilkan 3 dengan sisa 2. Operator modulo menghasilkan sisa pembagian."
+    },
+    {
+      "text": "Berapa 50% dalam bentuk desimal?",
+      "options": ["0,05", "0,5", "5", "50"],
+      "answerIndex": 1,
+      "explanation": "50% sama dengan 50/100 atau 0,5."
+    },
+    {
+      "text": "Jika A bernilai true dan B bernilai false, berapa hasil A AND B?",
+      "options": ["true", "false", "null", "undefined"],
+      "answerIndex": 1,
+      "explanation": "AND hanya bernilai true jika kedua operand bernilai true."
+    },
+    {
+      "text": "Manakah yang merupakan proposisi?",
+      "options": [
+        "Tolong tutup pintu!",
+        "Apakah kamu lapar?",
+        "5 lebih besar dari 3",
+        "Wow, bagus!"
+      ],
+      "answerIndex": 2,
+      "explanation": "\"5 lebih besar dari 3\" dapat dinilai benar atau salah, sehingga merupakan proposisi."
+    },
+    {
+      "text": "Berapakah nilai desimal dari biner 101?",
+      "options": ["3", "4", "5", "6"],
+      "answerIndex": 2,
+      "explanation": "101 dalam biner = 1×4 + 0×2 + 1×1 = 5."
+    }
+  ]
+}

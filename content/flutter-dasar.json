@@ -1,0 +1,120 @@
+{
+  "id": "flutter-dasar",
+  "title": "Flutter Dasar",
+  "summary": "Framework UI Google untuk membangun aplikasi mobile, web, dan desktop dari satu basis kode.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu Flutter?",
+      "content": "**Flutter** adalah framework *open source* buatan Google untuk membangun antarmuka aplikasi yang indah dan berperforma tinggi. Diluncurkan pada 2017, Flutter memungkinkan satu basis kode **Dart** yang sama dijalankan di Android, iOS, web, desktop, bahkan perangkat embedded.\n\nFilosofi utama Flutter: **\"everything is a widget\"**. Hampir setiap elemen tampilan - teks, tombol, layout, bahkan padding - adalah *widget*.\n\nKeunggulan Flutter:\n- **Hot reload**: perubahan kode langsung terlihat dalam hitungan detik tanpa kehilangan state.\n- **Rendering sendiri** (Skia/Impeller), sehingga tampilan konsisten di semua platform.\n- **Kaya widget** bawaan dan ekosistem paket yang besar di pub.dev.\n\nFlutter berbeda dari React Native: Flutter menggambar sendiri ke canvas, tidak menerjemahkan ke komponen native OS."
+    },
+    {
+      "id": "setup",
+      "title": "Struktur Proyek & Menjalankan",
+      "content": "Buat proyek baru dengan perintah:\n```bash\nflutter create aplikasi_saya\ncd aplikasi_saya\nflutter run\n```\n\nStruktur folder penting:\n- `lib/` - tempat kode Dart ditulis. File utamanya `main.dart`.\n- `android/`, `ios/`, `web/` - konfigurasi tiap platform.\n- `pubspec.yaml` - daftar dependensi dan aset (gambar, font).\n- `test/` - kode pengujian.\n\nContoh menambah paket di `pubspec.yaml`:\n```yaml\ndependencies:\n  flutter:\n    sdk: flutter\n  http: ^1.2.0\n```\n\nLalu jalankan `flutter pub get` untuk mengunduh paket. Perintah lain: `flutter doctor` (cek kesiapan lingkungan), `flutter build apk` (bangun aplikasi Android)."
+    },
+    {
+      "id": "widget",
+      "title": "Widget: Stateless & Stateful",
+      "content": "Widget adalah blok pembangun UI di Flutter. Ada dua jenis utama:\n\n**StatelessWidget** - tampilan yang tidak berubah (statis):\n```dart\nclass Judul extends StatelessWidget {\n  const Judul({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Text('Halo Flutter');\n  }\n}\n```\n\n**StatefulWidget** - tampilan yang bisa berubah saat ada interaksi:\n```dart\nclass Counter extends StatefulWidget {\n  const Counter({super.key});\n  @override\n  State<Counter> createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int nilai = 0;\n\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: () => setState(() => nilai++),\n      child: Text('Ditekan: $nilai'),\n    );\n  }\n}\n```\n\n`setState()` memberitahu Flutter bahwa state berubah sehingga widget digambar ulang."
+    },
+    {
+      "id": "layout",
+      "title": "Layout Dasar",
+      "content": "Flutter menyusun UI dengan *nested widgets*. Beberapa widget layout paling sering dipakai:\n\n- **Container**: kotak dengan ukuran, padding, warna, border.\n- **Row**: menyusun anak secara **horizontal**.\n- **Column**: menyusun anak secara **vertikal**.\n- **Stack**: menumpuk anak (satu di atas yang lain).\n- **Padding**: memberi jarak dalam.\n\n```dart\nColumn(\n  children: [\n    const Text('Judul'),\n    Row(\n      children: const [\n        Icon(Icons.star),\n        SizedBox(width: 8),\n        Text('Rating'),\n      ],\n    ),\n  ],\n)\n```\n\nUntuk menengahkan, gunakan `Center` atau `Align`. Gunakan `Expanded` agar anak `Row`/`Column` mengisi ruang tersisa secara proporsional."
+    },
+    {
+      "id": "navigasi",
+      "title": "Navigasi Antar Halaman",
+      "content": "Flutter memakai *stack* halaman untuk navigasi.\n\n**Push** - membuka halaman baru:\n```dart\nNavigator.push(\n  context,\n  MaterialPageRoute(builder: (context) => const HalamanDetail()),\n);\n```\n\n**Pop** - kembali ke halaman sebelumnya:\n```dart\nNavigator.pop(context);\n```\n\nUntuk aplikasi dengan banyak halaman, gunakan **named routes** agar rapi:\n```dart\nMaterialApp(\n  routes: {\n    '/': (context) => const HomePage(),\n    '/detail': (context) => const DetailPage(),\n  },\n);\n\n// Panggil dengan:\nNavigator.pushNamed(context, '/detail');\n```\n\nPaket populer seperti `go_router` menyediakan navigasi deklaratif berbasis URL untuk aplikasi yang lebih kompleks."
+    },
+    {
+      "id": "state",
+      "title": "Manajemen State",
+      "content": "Saat aplikasi membesar, mengelola state di banyak widget menjadi tantangan. Beberapa pendekatan populer:\n\n- **setState**: cukup untuk state lokal di satu widget.\n- **Provider**: berbagi state dengan pola *InheritedWidget* yang sederhana.\n- **Riverpod**: penerus Provider, lebih aman dan dapat diuji.\n- **Bloc / Cubit**: memisahkan logika dari UI dengan aliran *event* dan *state*.\n\nContoh konsep Provider: nilai di-*provide* di atas widget tree, lalu dibaca di bawahnya:\n```dart\n// Menyediakan\nChangeNotifierProvider(create: (_) => CounterModel(), child: MyApp())\n\n// Membaca\nfinal model = context.watch<CounterModel>();\n```\n\nPrinsipnya: **angkat state ke tempat yang tepat**, jangan biarkan tersebar tak terkendali. Pilih yang paling sederhana sesuai kebutuhan (YAGNI)."
+    },
+    {
+      "id": "form",
+      "title": "Input & Formulir",
+      "content": "Flutter menyediakan widget input bawaan:\n```dart\nTextField(\n  decoration: const InputDecoration(labelText: 'Nama'),\n  onChanged: (value) => print(value),\n)\n```\n\nUntuk formulir dengan validasi, gunakan `Form` dan `TextFormField`:\n```dart\nfinal _formKey = GlobalKey<FormState>();\n\nForm(\n  key: _formKey,\n  child: Column(\n    children: [\n      TextFormField(\n        validator: (v) =>\n            (v == null || v.isEmpty) ? 'Wajib diisi' : null,\n      ),\n      ElevatedButton(\n        onPressed: () {\n          if (_formKey.currentState!.validate()) {\n            // lanjutkan\n          }\n        },\n        child: const Text('Kirim'),\n      ),\n    ],\n  ),\n)\n```\n\n`validator` mengembalikan pesan error bila input tidak valid, atau `null` bila valid."
+    },
+    {
+      "id": "list",
+      "title": "Menampilkan Daftar",
+      "content": "Untuk menampilkan banyak item, gunakan `ListView` yang hanya membangun item yang terlihat (*lazy*) sehingga hemat memori.\n\n```dart\nListView.builder(\n  itemCount: data.length,\n  itemBuilder: (context, index) {\n    return ListTile(\n      leading: const Icon(Icons.person),\n      title: Text(data[index]),\n    );\n  },\n)\n```\n\n`ListView.builder` efisien karena tidak membuat semua widget sekaligus.\n\nUntuk data yang perlu dimuat dari jaringan, kombinasikan dengan `FutureBuilder`:\n```dart\nFutureBuilder<List<String>>(\n  future: ambilData(),\n  builder: (context, snapshot) {\n    if (snapshot.connectionState == ConnectionState.waiting) {\n      return const CircularProgressIndicator();\n    }\n    if (snapshot.hasError) return const Text('Gagal memuat');\n    return ListView(children: snapshot.data!.map(Text.new).toList());\n  },\n)\n```\n\nIni menangani tiga keadaan: **loading**, **error**, dan **sukses**."
+    },
+    {
+      "id": "http",
+      "title": "Mengambil Data dari Internet",
+      "content": "Flutter bisa mengambil data dari API memakai paket `http`.\n\n```dart\nimport 'dart:convert';\nimport 'package:http/http.dart' as http;\n\nFuture<List<dynamic>> ambilPengguna() async {\n  final res = await http.get(\n    Uri.parse('https://jsonplaceholder.typicode.com/users'),\n  );\n\n  if (res.statusCode == 200) {\n    return jsonDecode(res.body) as List<dynamic>;\n  }\n  throw Exception('Gagal memuat data');\n}\n```\n\nLangkah penting:\n1. Tambahkan `http` di `pubspec.yaml`.\n2. Gunakan `jsonDecode` untuk mengubah teks JSON menjadi objek Dart.\n3. Selalu periksa `statusCode` sebelum memakai hasilnya.\n4. Bungkus dalam `try-catch` untuk menangani kegagalan jaringan.\n\nJangan lupa menambahkan izin internet pada konfigurasi platform bila diperlukan."
+    },
+    {
+      "id": "animasi",
+      "title": "Animasi Sederhana",
+      "content": "Flutter sangat kuat untuk animasi. Cara paling sederhana memakai widget **Animated*** bawaan.\n\n```dart\nAnimatedContainer(\n  duration: const Duration(milliseconds: 300),\n  width: aktif ? 200 : 100,\n  height: aktif ? 200 : 100,\n  color: aktif ? Colors.blue : Colors.grey,\n  child: const SizedBox(),\n)\n```\n\nSaat properti berubah, Flutter otomatis menganimasikan transisi selama `duration`.\n\nUntuk kontrol lebih lanjut, gunakan `AnimationController` bersama `Tween`:\n```dart\nfinal controller = AnimationController(\n  vsync: this,\n  duration: const Duration(seconds: 1),\n);\nfinal opacity = Tween<double>(begin: 0, end: 1).animate(controller);\n\nFadeTransition(opacity: opacity, child: const Text('Muncul'));\n```\n\nAnimasi membuat UI terasa hidup - tapi gunakan secara bijak agar tidak mengganggu pengalaman."
+    },
+    {
+      "id": "theme",
+      "title": "Tema & Responsif",
+      "content": "Flutter memisahkan **tema** agar warna dan gaya konsisten di seluruh aplikasi:\n```dart\nMaterialApp(\n  theme: ThemeData(\n    colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),\n    useMaterial3: true,\n  ),\n)\n```\n\nDua mode tema (terang/gelap) bisa disediakan lewat `theme` dan `darkTheme`.\n\nUntuk tampilan **responsif**, gunakan `MediaQuery` atau `LayoutBuilder` untuk menyesuaikan tata letak sesuai ukuran layar:\n```dart\nfinal lebar = MediaQuery.of(context).size.width;\nfinal kolom = lebar > 600 ? 3 : 1;\n```\n\nAturan praktis: bangun **mobile-first**, lalu perluas untuk tablet dan desktop. Uji di berbagai ukuran layar sejak awal."
+    },
+    {
+      "id": "build",
+      "title": "Build & Rilis Aplikasi",
+      "content": "Setelah aplikasi selesai, saatnya membangun paket rilis.\n\n**Android (APK / App Bundle):**\n```bash\nflutter build apk --release\nflutter build appbundle --release\n```\n\n**iOS** (perlu macOS + Xcode):\n```bash\nflutter build ios --release\n```\n\n**Web:**\n```bash\nflutter build web\n```\n\nSebelum rilis:\n- Ganti nama aplikasi, ikon, dan versi di `pubspec.yaml`.\n- Atur *signing key* untuk Android (jangan pakai debug key).\n- Uji performa dengan `flutter run --profile` dan cek dengan `flutter analyze`.\n- Pastikan tidak ada error maupun *warning* yang tersisa.\n\nBuild **release** memakai AOT compilation sehingga ukuran dan performa lebih optimal daripada mode debug."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Apa bahasa pemrograman yang dipakai Flutter?",
+      "options": ["Kotlin", "Swift", "Dart", "JavaScript"],
+      "answerIndex": 2,
+      "explanation": "Flutter dibangun di atas bahasa Dart yang dikembangkan Google."
+    },
+    {
+      "text": "Filosofi inti Flutter dalam membangun antarmuka adalah?",
+      "options": [
+        "Semua adalah widget",
+        "Semua adalah komponen native",
+        "Semua adalah HTML",
+        "Semua adalah plugin"
+      ],
+      "answerIndex": 0,
+      "explanation": "Di Flutter, hampir setiap elemen tampilan - teks, tombol, layout - adalah widget."
+    },
+    {
+      "text": "Widget mana yang cocok untuk tampilan yang berubah saat ada interaksi?",
+      "options": ["StatelessWidget", "StatefulWidget", "ImmutableWidget", "FinalWidget"],
+      "answerIndex": 1,
+      "explanation": "StatefulWidget memiliki state yang dapat berubah, biasanya diperbarui lewat setState()."
+    },
+    {
+      "text": "Apa keunggulan hot reload pada Flutter?",
+      "options": [
+        "Menghapus kode yang tidak dipakai",
+        "Perubahan kode langsung terlihat tanpa kehilangan state",
+        "Mengompres ukuran aplikasi",
+        "Mengubah bahasa pemrograman"
+      ],
+      "answerIndex": 1,
+      "explanation": "Hot reload menerapkan perubahan kode secara instan tanpa memulai ulang aplikasi, sehingga state tetap terjaga."
+    },
+    {
+      "text": "Widget mana yang paling efisien untuk menampilkan daftar panjang?",
+      "options": ["Column", "ListView.builder", "Container", "Stack"],
+      "answerIndex": 1,
+      "explanation": "ListView.builder hanya membangun item yang terlihat (lazy), sehingga hemat memori untuk daftar panjang."
+    },
+    {
+      "text": "Perintah apa yang dipakai untuk membangun paket rilis Android?",
+      "options": [
+        "flutter run",
+        "flutter build apk --release",
+        "flutter pub get",
+        "flutter doctor"
+      ],
+      "answerIndex": 1,
+      "explanation": "flutter build apk --release menghasilkan APK dalam mode rilis dengan AOT compilation."
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "css-dasar",
+  "title": "CSS Dasar",
+  "summary": "Styling halaman web - warna, layout, dan tampilan responsif dengan CSS.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu CSS?",
+      "content": "CSS (Cascading Style Sheets) adalah bahasa untuk mengatur tampilan halaman web - warna, font, jarak, layout, dan animasi.\n\nDalam triad web:\n- **HTML** = struktur (kerangka)\n- **CSS** = tampilan (gaya)\n- **JavaScript** = perilaku (interaksi)\n\nTanpa CSS, halaman web hanya berupa teks hitam di latar putih."
+    },
+    {
+      "id": "cara-pakai",
+      "title": "Cara Menulis CSS",
+      "content": "Ada 3 cara menulis CSS:\n\n**1. Inline (langsung di elemen):**\n```html\n<p style=\"color: red;\">Merah</p>\n```\n\n**2. Internal (di dalam `<style>`):**\n```html\n<style>\n  p { color: blue; }\n</style>\n```\n\n**3. Eksternal (file terpisah - paling umum):**\n```html\n<link rel=\"stylesheet\" href=\"style.css\">\n```\n\nDi file `style.css`:\n```css\np {\n  color: blue;\n  font-size: 16px;\n}\n```\n\nAturan dasar: `selector { properti: nilai; }`"
+    },
+    {
+      "id": "selector",
+      "title": "Selector",
+      "content": "Selector menentukan elemen mana yang di-styling:\n\n```css\np           { }  /* semua <p> */\n#judul      { }  /* elemen id=\"judul\" */\n.card       { }  /* semua class=\"card\" */\nh1, h2      { }  /* h1 dan h2 */\np a         { }  /* <a> di dalam <p> */\n.card:hover { }  /* class card saat hover */\n```\n\nPrioritas (makin spesifik, makin tinggi):\n1. Element (`p`)\n2. Class (`.card`)\n3. ID (`#judul`)\n4. Inline (`style=\"...\"`)"
+    },
+    {
+      "id": "warna-font",
+      "title": "Warna dan Font",
+      "content": "Properti warna dan teks:\n\n```css\nbody {\n  color: #333;              /* warna teks */\n  background-color: #fff;   /* warna latar */\n  font-family: Arial, sans-serif;\n  font-size: 16px;\n  line-height: 1.6;         /* tinggi baris */\n}\n```\n\nFormat warna:\n- Nama: `red`, `blue`\n- HEX: `#7DB562`\n- RGB: `rgb(125, 181, 98)`\n- HSL: `hsl(100, 30%, 55%)`"
+    },
+    {
+      "id": "box-model",
+      "title": "Box Model",
+      "content": "Setiap elemen HTML adalah kotak dengan 4 lapis:\n\n```\n┌─────────────────────────────┐\n│           margin            │\n│  ┌───────────────────────┐  │\n│  │        border         │  │\n│  │  ┌─────────────────┐  │  │\n│  │  │     padding     │  │  │\n│  │  │   ┌─────────┐   │  │  │\n│  │  │  │ content │   │  │  │\n│  │  │  └─────────┘   │  │  │\n│  │  └─────────────────┘  │  │\n│  └───────────────────────┘  │\n└─────────────────────────────┘\n```\n\n```css\n.card {\n  padding: 16px;      /* jarak antar konten */\n  margin: 8px;        /* jarak antar elemen */\n  border: 1px solid;  /* garis tepi */\n  border-radius: 8px; /* sudut membulat */\n}\n```"
+    },
+    {
+      "id": "flexbox",
+      "title": "Flexbox (Layout)",
+      "content": "Flexbox adalah cara paling umum untuk layout modern:\n\n```css\n.container {\n  display: flex;              /* aktifkan flex */\n  gap: 12px;                  /* jarak antar item */\n  justify-content: center;    /* horizontal alignment */\n  align-items: center;        /* vertical alignment */\n  flex-wrap: wrap;            /* pindah baris jika penuh */\n}\n\n.item {\n  flex: 1;  /* item membesar untuk isi ruang */\n}\n```\n\nArah `justify-content`:\n- `flex-start` - rapat kiri\n- `center` - tengah\n- `space-between` - rata kiri-kanan"
+    },
+    {
+      "id": "responsive",
+      "title": "Responsive Design",
+      "content": "Media query membuat tampilan menyesuaikan ukuran layar:\n\n```css\n/* Mobile first */\n.card {\n  width: 100%;\n}\n\n/* Layar tablet ke atas */\n@media (min-width: 640px) {\n  .card {\n    width: 48%;\n  }\n}\n\n/* Layar desktop */\n@media (min-width: 1024px) {\n  .card {\n    width: 30%;\n  }\n}\n```\n\nPrinsip:\n1. Desain untuk mobile dulu (kecil)\n2. Tambah properti untuk layar besar\n3. Uji di berbagai ukuran viewport"
+    }
+  ],
+  "questions": [
+    {
+      "text": "Apa kepanjangan dari CSS?",
+      "options": [
+        "Computer Style Sheets",
+        "Cascading Style Sheets",
+        "Creative Style System",
+        "Colorful Style Sheets"
+      ],
+      "answerIndex": 1,
+      "explanation": "CSS adalah Cascading Style Sheets - sistem berlapis untuk mengatur tampilan web."
+    },
+    {
+      "text": "Cara menulis CSS mana yang paling disarankan untuk project nyata?",
+      "options": [
+        "Inline (style=\"...\")",
+        "Internal (<style>)",
+        "Eksternal (file .css terpisah)",
+        "Semua sama saja"
+      ],
+      "answerIndex": 2,
+      "explanation": "File eksternal paling mudah di-maintain dan bisa dipakai di banyak halaman."
+    },
+    {
+      "text": "Selector mana yang paling spesifik (prioritas tertinggi)?",
+      "options": [
+        "p",
+        ".card",
+        "#judul",
+        "element yang sama"
+      ],
+      "answerIndex": 2,
+      "explanation": "ID selector (#) punya prioritas lebih tinggi daripada class (.) dan element."
+    },
+    {
+      "text": "Properti apa yang mengatur jarak antar elemen (bukan di dalamnya)?",
+      "options": [
+        "padding",
+        "margin",
+        "border",
+        "gap"
+      ],
+      "answerIndex": 1,
+      "explanation": "Margin = jarak luar antar elemen. Padding = jarak dalam antar konten."
+    },
+    {
+      "text": "Apa fungsi `display: flex`?",
+      "options": [
+        "Menampilkan elemen",
+        "Mengatur tata letak anak-anak elemen secara fleksibel",
+        "Menambah animasi",
+        "Menyembunyikan elemen"
+      ],
+      "answerIndex": 1,
+      "explanation": "Flexbox mengatur distribusi ruang dan alignment anak-anak elemen dalam satu container."
+    }
+  ]
+}

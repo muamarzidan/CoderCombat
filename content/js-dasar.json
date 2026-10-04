@@ -1,0 +1,99 @@
+{
+  "id": "js-dasar",
+  "title": "JavaScript Dasar",
+  "summary": "Bahasa pemrograman web - logika, interaksi, dan dinamika halaman.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu JavaScript?",
+      "content": "JavaScript (JS) adalah bahasa pemrograman yang membuat halaman web menjadi interaktif.\n\nTriad web:\n- **HTML** = struktur\n- **CSS** = tampilan\n- **JavaScript** = perilaku\n\nDengan JS kamu bisa: merespon klik, validasi form, fetch data dari server, animasi, hingga membuat game di browser.\n\nJS berjalan langsung di browser - tidak perlu instalasi tambahan. Cukup tulis di file `.js` atau di dalam tag `<script>`."
+    },
+    {
+      "id": "variabel",
+      "title": "Variabel",
+      "content": "Variabel menyimpan nilai untuk dipakai ulang:\n\n```js\nlet nama = 'Budi';\nconst umur = 17;\nvar kota = 'Bandung'; // hindari var di kode modern\n\nnama = 'Ani';   // let bisa diubah\n// umur = 18;   // const tidak bisa diubah\n```\n\nAturan penamaan:\n- Diawali huruf, `_` atau `$`\n- Case-sensitive (`nama` ≠ `Nama`)\n- Gunakan camelCase: `totalHarga`, `isLogin`\n\nTipe data dasar: `string`, `number`, `boolean`, `null`, `undefined`, `object`, `array`."
+    },
+    {
+      "id": "operator",
+      "title": "Operator",
+      "content": "Operator untuk operasi nilai:\n\n```js\n// Aritmatika\n2 + 3  // 5\n5 - 1  // 4\n3 * 4  // 12\n10 / 2 // 5\n10 % 3 // 1 (sisa bagi)\n\n// Perbandingan\n5 === 5   // true (strict equal)\n5 == '5'  // true (loose - hindari)\n5 !== 3   // true\n\n// Logika\ntrue && false // false\ntrue || false // true\n!true         // false\n\n// Concatenation\n'Halo ' + nama // 'Halo Budi'\n```"
+    },
+    {
+      "id": "kondisi",
+      "title": "Kondisi (if / switch)",
+      "content": "Menjalankan kode berbeda tergantung kondisi:\n\n```js\nlet nilai = 75;\n\nif (nilai >= 90) {\n  console.log('A');\n} else if (nilai >= 70) {\n  console.log('B');\n} else {\n  console.log('C');\n}\n\n// Switch\nlet hari = 'senin';\nswitch (hari) {\n  case 'senin':\n    console.log('Kerja');\n    break;\n  case 'minggu':\n    console.log('Libur');\n    break;\n  default:\n    console.log('Hari lain');\n}\n```"
+    },
+    {
+      "id": "loop",
+      "title": "Perulangan (Loop)",
+      "content": "Mengulang kode beberapa kali:\n\n```js\n// for\nfor (let i = 0; i < 3; i++) {\n  console.log(i); // 0, 1, 2\n}\n\n// while\nlet n = 0;\nwhile (n < 3) {\n  console.log(n);\n  n++;\n}\n\n// for...of (untuk array)\nlet buah = ['apel', 'jeruk'];\nfor (let b of buah) {\n  console.log(b);\n}\n```\n\nHati-hati infinite loop: pastikan kondisi berhenti tercapai."
+    },
+    {
+      "id": "fungsi",
+      "title": "Fungsi",
+      "content": "Fungsi membungkus logika agar bisa dipakai ulang:\n\n```js\nfunction sapa(nama) {\n  return 'Halo, ' + nama + '!';\n}\n\nsapa('Budi'); // 'Halo, Budi!'\n\n// Arrow function (modern)\nconst kali = (a, b) => a * b;\nkali(3, 4); // 12\n\n// Default parameter\nfunction diskon(harga, persen = 10) {\n  return harga - harga * persen / 100;\n}\n```\n\nFungsi bisa menjadi nilai: `const fn = sapa; fn('Ani');`"
+    },
+    {
+      "id": "dom",
+      "title": "DOM & Event",
+      "content": "DOM (Document Object Model) adalah representasi HTML sebagai objek JS:\n\n```js\n// Ambil elemen\nconst btn = document.querySelector('#tombol');\nconst teks = document.querySelector('.judul');\n\n// Ubah konten & style\nteks.textContent = 'Judul Baru';\nteks.style.color = 'red';\n\n// Respon event\nbtn.addEventListener('click', () => {\n  alert('Tombol diklik!');\n});\n\n// Buat elemen baru\nconst p = document.createElement('p');\np.textContent = 'Paragraf baru';\ndocument.body.appendChild(p);\n```"
+    }
+  ],
+  "questions": [
+    {
+      "text": "Keyword mana yang membuat variabel tidak bisa di-assign ulang?",
+      "options": [
+        "let",
+        "const",
+        "var",
+        "static"
+      ],
+      "answerIndex": 1,
+      "explanation": "const membuat binding konstan - tidak bisa di-assign ulang. Isi objek const masih bisa dimutasi."
+    },
+    {
+      "text": "Apa hasil dari `5 === '5'`?",
+      "options": [
+        "true",
+        "false",
+        "error",
+        "undefined"
+      ],
+      "answerIndex": 1,
+      "explanation": "=== membandingkan tanpa konversi tipe, jadi number 5 !== string '5'."
+    },
+    {
+      "text": "Apa output `for (let i=0; i<3; i++) console.log(i)`?",
+      "options": [
+        "1 2 3",
+        "0 1 2",
+        "0 1 2 3",
+        "1 2"
+      ],
+      "answerIndex": 1,
+      "explanation": "Mulai dari 0, kondisi i<3, increment tiap iterasi."
+    },
+    {
+      "text": "Bagaimana cara menambahkan event klik pada tombol?",
+      "options": [
+        "btn.onClick = ...",
+        "btn.addEventListener('click', ...)",
+        "btn.click(...)",
+        "Semua benar"
+      ],
+      "answerIndex": 1,
+      "explanation": "addEventListener adalah cara standar dan bisa attach banyak handler."
+    },
+    {
+      "text": "Apa yang dilakukan `document.querySelector('.judul')`?",
+      "options": [
+        "Membuat elemen baru",
+        "Mengambil elemen pertama dengan class judul",
+        "Menghapus elemen",
+        "Mengubah warna"
+      ],
+      "answerIndex": 1,
+      "explanation": "querySelector mengembalikan elemen pertama yang cocok dengan selector CSS."
+    }
+  ]
+}

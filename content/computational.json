@@ -1,0 +1,124 @@
+{
+  "id": "computational",
+  "title": "Computational Thinking",
+  "summary": "Pelajari cara berpikir sistematis untuk memahami masalah, memecahnya menjadi bagian kecil, menemukan pola, membuat abstraksi, dan menyusun langkah penyelesaian.",
+  "units": [
+    {
+      "id": "apa-itu-computational-thinking",
+      "title": "Apa itu Computational Thinking?",
+      "content": "Computational Thinking adalah pendekatan untuk memecahkan masalah dengan cara yang sistematis sehingga solusi dapat dijalankan atau dibantu oleh komputer. Computational Thinking tidak berarti berpikir seperti komputer. Manusia tetap menentukan masalah, tujuan, aturan, dan solusi; komputer dapat digunakan untuk menjalankan instruksi yang telah dibuat.\n\nEmpat konsep yang sering digunakan untuk menjelaskan Computational Thinking adalah decomposition, pattern recognition, abstraction, dan algorithm design.\n\nComputational Thinking dapat digunakan bahkan ketika masalah tersebut akhirnya tidak diselesaikan menggunakan program."
+    },
+    {
+      "id": "memahami-masalah",
+      "title": "Memahami Masalah",
+      "content": "Sebelum mencari solusi, masalah harus dipahami terlebih dahulu.\n\nBeberapa pertanyaan yang dapat digunakan:\n- Apa masalah yang ingin diselesaikan?\n- Apa tujuan akhirnya?\n- Informasi apa yang sudah tersedia?\n- Informasi apa yang belum diketahui?\n- Apa batasan atau aturan yang harus dipenuhi?\n- Bagaimana kita mengetahui bahwa solusi tersebut benar?\n\nContoh: Jika ingin membuat program untuk menentukan apakah seorang siswa lulus, kita perlu menentukan terlebih dahulu apa arti 'lulus'. Misalnya, apakah berdasarkan nilai rata-rata, nilai minimum setiap mata pelajaran, atau aturan lainnya.\n\nMasalah yang didefinisikan dengan tidak jelas dapat menghasilkan solusi yang tidak sesuai meskipun implementasinya benar."
+    },
+    {
+      "id": "decomposition",
+      "title": "Decomposition: Memecah Masalah",
+      "content": "Decomposition adalah proses memecah masalah yang kompleks menjadi bagian-bagian yang lebih kecil dan lebih mudah dipahami atau diselesaikan.\n\nContoh: sebuah sistem toko online dapat dipecah menjadi beberapa bagian seperti:\n- Registrasi dan login\n- Katalog produk\n- Keranjang belanja\n- Checkout\n- Pembayaran\n- Pengelolaan pesanan\n\nSetiap bagian dapat dianalisis dan dikembangkan secara terpisah sebelum digabungkan menjadi sistem yang lebih besar.\n\nDecomposition membantu mengurangi kompleksitas karena kita tidak perlu menyelesaikan seluruh masalah sekaligus."
+    },
+    {
+      "id": "pattern-recognition",
+      "title": "Pattern Recognition: Mengenali Pola",
+      "content": "Pattern recognition adalah proses menemukan kesamaan, keteraturan, atau pola di antara masalah atau data.\n\nContoh sederhana:\n\n2, 4, 6, 8, 10, ...\n\nKita dapat melihat bahwa setiap angka bertambah 2.\n\nDalam programming, pengenalan pola dapat membantu menemukan solusi yang dapat digunakan kembali. Misalnya, jika beberapa halaman aplikasi memiliki pola validasi input yang sama, aturan validasinya dapat dibuat sebagai fungsi atau komponen yang dapat digunakan kembali.\n\nMengenali pola bukan berarti menganggap semua masalah sama. Kita tetap perlu memastikan bahwa pola yang ditemukan benar-benar berlaku pada masalah yang sedang dihadapi."
+    },
+    {
+      "id": "abstraction",
+      "title": "Abstraction: Fokus pada Hal yang Penting",
+      "content": "Abstraction adalah proses menyederhanakan suatu masalah atau sistem dengan berfokus pada informasi yang relevan dan mengabaikan detail yang tidak diperlukan untuk tujuan tertentu.\n\nContoh: ketika menggunakan aplikasi peta untuk mencari rute, pengguna biasanya hanya membutuhkan informasi seperti lokasi, jalan, dan rute. Pengguna tidak perlu mengetahui seluruh detail bagaimana data peta disimpan atau bagaimana algoritma pencarian rute bekerja.\n\nDalam programming, abstraction dapat diwujudkan melalui fungsi, class, API, dan struktur lain yang menyembunyikan detail implementasi yang tidak perlu diketahui oleh penggunaannya."
+    },
+    {
+      "id": "input-process-output",
+      "title": "Input, Process, dan Output",
+      "content": "Banyak masalah komputasional dapat dipahami menggunakan pola Input → Process → Output.\n\nInput adalah data yang diberikan kepada sistem.\nProcess adalah operasi atau aturan yang diterapkan terhadap data.\nOutput adalah hasil dari proses tersebut.\n\nContoh:\n\nInput:\nNilai = 80\n\nProcess:\nJika nilai >= 75, maka lulus.\n\nOutput:\nLulus\n\nModel ini membantu kita memahami apa yang masuk ke sistem, apa yang dilakukan sistem, dan apa yang dihasilkan."
+    },
+    {
+      "id": "logika-kondisional",
+      "title": "Berpikir dengan Kondisi",
+      "content": "Banyak keputusan dapat dinyatakan menggunakan kondisi.\n\nContoh:\n\nJika hujan, bawa payung.\nJika tidak hujan, tidak perlu membawa payung.\n\nDalam programming, pola tersebut dapat direpresentasikan menggunakan struktur conditional seperti if dan else.\n\nContoh JavaScript:\n\n```javascript\nif (nilai >= 75) {\n  console.log(\"Lulus\");\n} else {\n  console.log(\"Belum lulus\");\n}\n```\n\nKondisi memungkinkan program memilih tindakan berdasarkan keadaan atau data yang tersedia."
+    },
+    {
+      "id": "flowchart",
+      "title": "Flowchart",
+      "content": "Flowchart adalah diagram yang digunakan untuk menggambarkan alur suatu proses atau algoritma menggunakan simbol-simbol yang terhubung.\n\nBeberapa simbol umum:\n- Oval: start atau end\n- Persegi panjang: process\n- Belah ketupat: decision\n- Jajar genjang: input atau output\n- Panah: arah alur\n\nContoh alur sederhana:\n\nMulai → Masukkan nilai → Apakah nilai >= 75? → Ya → Lulus → Selesai\n                                      ↓ Tidak\n                                  Tidak Lulus\n\nFlowchart dapat membantu memeriksa alur pemikiran sebelum solusi diterjemahkan menjadi kode."
+    },
+    {
+      "id": "pseudocode",
+      "title": "Pseudocode",
+      "content": "Pseudocode adalah cara menuliskan langkah penyelesaian masalah menggunakan bentuk yang menyerupai instruksi program tetapi tidak terikat pada sintaks bahasa pemrograman tertentu.\n\nContoh menentukan bilangan genap atau ganjil:\n\n```text\nMULAI\n  INPUT angka\n  JIKA angka modulo 2 = 0\n    TULIS \"Genap\"\n  JIKA TIDAK\n    TULIS \"Ganjil\"\nSELESAI\n```\n\nPseudocode membantu memisahkan logika penyelesaian masalah dari detail sintaks bahasa pemrograman."
+    },
+    {
+      "id": "debugging-thinking",
+      "title": "Debugging sebagai Cara Berpikir",
+      "content": "Debugging adalah proses menemukan dan memperbaiki kesalahan pada program atau sistem.\n\nDebugging yang baik bukan sekadar mencoba mengubah kode secara acak. Kita dapat mengikuti proses:\n1. Mengamati gejala atau hasil yang salah.\n2. Membuat ulang masalah jika memungkinkan.\n3. Menentukan bagian yang kemungkinan menyebabkan masalah.\n4. Menguji dugaan.\n5. Memperbaiki penyebab masalah.\n6. Menguji kembali untuk memastikan perbaikan tidak menimbulkan masalah baru.\n\nKemampuan debugging berhubungan erat dengan kemampuan memecah masalah dan menguji asumsi."
+    },
+    {
+      "id": "berpikir-langkah-demi-langkah",
+      "title": "Berpikir Langkah demi Langkah",
+      "content": "Komputer menjalankan instruksi sesuai aturan yang diberikan. Karena itu, solusi komputasional perlu menjelaskan langkah-langkah dengan cukup jelas.\n\nContoh masalah: menghitung luas persegi panjang.\n\nLangkah:\n1. Dapatkan panjang.\n2. Dapatkan lebar.\n3. Kalikan panjang dengan lebar.\n4. Tampilkan hasil.\n\nSecara matematis:\n\nluas = panjang × lebar\n\nUrutan langkah penting karena solusi harus menghasilkan proses yang dapat diikuti secara konsisten."
+    },
+    {
+      "id": "latihan-decomposition",
+      "title": "Latihan: Pecah Sebuah Masalah",
+      "content": "Bayangkan kamu diminta membuat aplikasi peminjaman buku sekolah.\n\nCoba pecah masalah tersebut menjadi bagian-bagian yang lebih kecil.\n\nContoh bagian yang mungkin ditemukan:\n- Data siswa\n- Data buku\n- Pencarian buku\n- Peminjaman\n- Pengembalian\n- Pengecekan ketersediaan\n- Riwayat peminjaman\n\nTujuan latihan ini bukan menemukan satu jawaban yang benar, tetapi belajar melihat masalah besar sebagai kumpulan masalah yang lebih kecil."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Apa tujuan utama decomposition?",
+      "options": [
+        "Membuat masalah menjadi lebih kompleks",
+        "Memecah masalah menjadi bagian yang lebih kecil",
+        "Menghapus semua data",
+        "Mengubah kode menjadi bahasa lain"
+      ],
+      "answerIndex": 1,
+      "explanation": "Decomposition memecah masalah yang kompleks menjadi bagian-bagian yang lebih kecil sehingga lebih mudah dipahami dan diselesaikan."
+    },
+    {
+      "text": "Apa yang dimaksud dengan abstraction?",
+      "options": [
+        "Menambahkan semua detail ke dalam masalah",
+        "Menghapus seluruh informasi dari masalah",
+        "Berfokus pada informasi yang relevan dan menyembunyikan detail yang tidak diperlukan",
+        "Mengubah program menjadi flowchart"
+      ],
+      "answerIndex": 2,
+      "explanation": "Abstraction menyederhanakan suatu masalah dengan berfokus pada detail yang relevan untuk tujuan tertentu."
+    },
+    {
+      "text": "Urutan yang paling tepat untuk model sederhana sistem adalah...",
+      "options": [
+        "Output → Input → Process",
+        "Process → Output → Input",
+        "Input → Process → Output",
+        "Process → Input → Output"
+      ],
+      "answerIndex": 2,
+      "explanation": "Model sederhana yang umum digunakan adalah Input → Process → Output."
+    },
+    {
+      "text": "Apa fungsi pseudocode?",
+      "options": [
+        "Menentukan warna website",
+        "Menuliskan logika solusi tanpa terikat sintaks bahasa pemrograman tertentu",
+        "Menggantikan sistem operasi",
+        "Mengompilasi program"
+      ],
+      "answerIndex": 1,
+      "explanation": "Pseudocode membantu menggambarkan langkah penyelesaian masalah tanpa mengikuti sintaks bahasa pemrograman tertentu."
+    },
+    {
+      "text": "Simbol flowchart berbentuk belah ketupat biasanya digunakan untuk...",
+      "options": [
+        "Menandai keputusan atau kondisi",
+        "Menandai akhir program",
+        "Menampilkan proses biasa",
+        "Menampilkan komentar"
+      ],
+      "answerIndex": 0,
+      "explanation": "Dalam konvensi flowchart yang umum, simbol decision berbentuk belah ketupat."
+    }
+  ]
+}

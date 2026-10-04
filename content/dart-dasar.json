@@ -1,0 +1,110 @@
+{
+  "id": "dart-dasar",
+  "title": "Dart Dasar",
+  "summary": "Bahasa pemrograman Dart dari Google - fondasi sebelum membangun aplikasi Flutter.",
+  "units": [
+    {
+      "id": "intro",
+      "title": "Apa itu Dart?",
+      "content": "**Dart** adalah bahasa pemrograman yang dikembangkan Google dan pertama kali diperkenalkan pada 2011. Bahasa ini dirancang untuk membangun aplikasi lintas platform - dari aplikasi mobile, web, desktop, sampai server.\n\nDart menjadi terkenal karena menjadi bahasa resmi **Flutter**, framework UI buatan Google. Dengan Dart, satu basis kode yang sama bisa dijalankan di Android, iOS, web, dan desktop.\n\nDart mendukung dua mode eksekusi:\n- **JIT (Just-In-Time)** saat development - membuat *hot reload* cepat.\n- **AOT (Ahead-Of-Time)** saat produksi - dikompilasi ke kode mesin native agar performanya tinggi.\n\nDart juga bisa dikompilasi menjadi **JavaScript** (untuk web) dan **native code** (untuk mobile/desktop)."
+    },
+    {
+      "id": "hello",
+      "title": "Program Pertama",
+      "content": "Setiap program Dart dimulai dari fungsi `main()`. Ini titik masuk (*entry point*) yang dijalankan pertama kali.\n\n```dart\nvoid main() {\n  print('Halo, Dart!');\n}\n```\n\nPenjelasan:\n- `void` artinya fungsi ini tidak mengembalikan nilai.\n- `main` adalah nama fungsi khusus sebagai titik masuk.\n- `print()` menampilkan teks ke konsol.\n- Setiap pernyataan diakhiri **titik koma** (`;`).\n\nDart peka huruf besar-kecil (*case-sensitive*): `Nama` dan `nama` dianggap berbeda."
+    },
+    {
+      "id": "variabel",
+      "title": "Variabel dan Tipe Data",
+      "content": "Dart adalah bahasa **statically typed** - tipe data diketahui saat kompilasi - namun mendukung *type inference* dengan kata kunci `var`.\n\n```dart\nint umur = 17;          // bilangan bulat\ndouble tinggi = 165.5;  // bilangan desimal\nString nama = 'Budi';   // teks\nbool lulus = true;      // benar/salah\nvar kota = 'Bandung';   // tipe disimpulkan otomatis (String)\n```\n\nTipe data bawaan utama:\n- `int`, `double`, `num` (induk int & double)\n- `String` (teks, ditulis dengan tanda kutip)\n- `bool` (true/false)\n- `List`, `Set`, `Map` (koleksi)\n\nTiga kata kunci penting untuk nilai tetap:\n- `var`: variabel yang bisa diubah.\n- `final`: nilai ditetapkan sekali saat runtime.\n- `const`: nilai konstan yang diketahui saat kompilasi."
+    },
+    {
+      "id": "string",
+      "title": "String dan Interpolasi",
+      "content": "Dart mendukung **interpolasi string** - menyisipkan nilai variabel ke dalam teks dengan `$`.\n\n```dart\nString nama = 'Sari';\nint skor = 95;\n\nprint('Halo, $nama!');          // Halo, Sari!\nprint('Skormu: ${skor + 5}');   // Skormu: 100\n```\n\nGunakan `$namaVariabel` untuk variabel sederhana, dan `${ekspresi}` bila perlu menghitung sesuatu di dalamnya.\n\nString bisa multi-baris dengan tiga tanda kutip:\n```dart\nString pesan = '''Baris satu\nBaris dua''';```\n\nString juga punya method berguna: `.length`, `.toUpperCase()`, `.substring(0, 3)`, `.contains('x')`, dan `.split(',')`."
+    },
+    {
+      "id": "operator",
+      "title": "Operator",
+      "content": "Operator adalah simbol untuk melakukan operasi pada nilai.\n\n**Aritmetika:** `+`, `-`, `*`, `/`, `~/` (bagi bulat), `%` (sisa bagi)\n```dart\nprint(7 / 2);    // 3.5\nprint(7 ~/ 2);   // 3\nprint(7 % 2);    // 1\n```\n\n**Perbandingan:** `==`, `!=`, `>`, `<`, `>=`, `<=` (menghasilkan bool)\n\n**Logika:** `&&` (dan), `||` (atau), `!` (bukan)\n\n**Penugasan gabungan:** `+=`, `-=`, `*=`, `/=`, `??=`\n```dart\nint x = 5;\nx += 3;   // x menjadi 8\n```\n\nOperator `??` (null-aware) memberi nilai pengganti bila operan kiri bernilai null:\n```dart\nString? nama;\nprint(nama ?? 'Tanpa Nama'); // Tanpa Nama\n```"
+    },
+    {
+      "id": "kondisi",
+      "title": "Percabangan (if & switch)",
+      "content": "Percabangan membuat program mengambil keputusan.\n\n```dart\nint nilai = 80;\nif (nilai >= 90) {\n  print('A');\n} else if (nilai >= 75) {\n  print('B');\n} else {\n  print('C');\n}\n```\n\nEkspresi kondisional ringkas (ternary):\n```dart\nString status = nilai >= 75 ? 'Lulus' : 'Tidak Lulus';\n```\n\n`switch` cocok untuk membandingkan satu nilai dengan banyak kemungkinan:\n```dart\nswitch (hari) {\n  case 'Sabtu':\n  case 'Minggu':\n    print('Libur');\n    break;\n  default:\n    print('Hari kerja');\n}\n```\n\nSejak Dart 3, `switch` bisa menjadi *expression* dan memeriksa **pattern** secara menyeluruh (*exhaustive*)."
+    },
+    {
+      "id": "loop",
+      "title": "Perulangan",
+      "content": "Perulangan menjalankan blok kode berkali-kali.\n\n**for klasik:**\n```dart\nfor (int i = 1; i <= 5; i++) {\n  print(i);\n}\n```\n\n**for-in** untuk menelusuri koleksi:\n```dart\nvar buah = ['apel', 'jeruk', 'mangga'];\nfor (var b in buah) {\n  print(b);\n}\n```\n\n**while** dan **do-while:**\n```dart\nint n = 3;\nwhile (n > 0) {\n  print(n);\n  n--;\n}\n```\n\nGunakan `break` untuk keluar dari loop dan `continue` untuk melewati iterasi saat ini. Hindari loop tak berujung - pastikan kondisinya pada akhirnya menjadi false."
+    },
+    {
+      "id": "fungsi",
+      "title": "Fungsi",
+      "content": "Fungsi adalah blok kode yang bisa dipanggil berulang.\n\n```dart\nint tambah(int a, int b) {\n  return a + b;\n}\n```\n\nBentuk ringkas dengan `=>` (*arrow function*):\n```dart\nint kali(int a, int b) => a * b;\n```\n\n**Parameter bernama** (named) - lebih jelas saat dipanggil:\n```dart\nvoid sapa({required String nama, int umur = 0}) {\n  print('Halo $nama ($umur)');\n}\n\nsapa(nama: 'Dewi', umur: 20);\n```\n\n**Parameter opsional** dengan `[]`:\n```dart\nvoid cetak(String teks, [String? suffix]) {}\n```\n\nFungsi juga bisa menjadi nilai (*first-class function*) dan dipakai sebagai argumen fungsi lain - konsep penting di Flutter."
+    },
+    {
+      "id": "koleksi",
+      "title": "Koleksi: List, Set, Map",
+      "content": "Dart menyediakan tiga koleksi utama.\n\n**List** - urutan berindeks:\n```dart\nvar angka = [1, 2, 3];\nangka.add(4);\nprint(angka[0]); // 1\n```\n\n**Set** - kumpulan unik tanpa urutan:\n```dart\nvar unik = {1, 2, 2, 3};\nprint(unik.length); // 3\n```\n\n**Map** - pasangan kunci-nilai:\n```dart\nvar siswa = {'nama': 'Andi', 'kelas': 10};\nprint(siswa['nama']); // Andi\n```\n\nFitur keren Dart: **collection if/for** dan **spread** `...`:\n```dart\nvar ganjil = [for (var i in angka) if (i.isOdd) i];\nvar gabung = [0, ...angka, 5];\n```"
+    },
+    {
+      "id": "oop",
+      "title": "Konsep OOP di Dart",
+      "content": "Dart murni berorientasi objek - hampir semua hal adalah *object*.\n\n```dart\nclass Siswa {\n  String nama;\n  int nilai;\n\n  Siswa(this.nama, this.nilai); // constructor ringkas\n\n  bool get lulus => nilai >= 75;\n\n  void tampilkan() {\n    print('$nama: $nilai');\n  }\n}\n\nvar s = Siswa('Rina', 88);\nprint(s.lulus); // true\n```\n\nKonsep utama:\n- **Class** dan **object** (instance).\n- **Constructor** untuk membuat objek.\n- **Inheritance** dengan `extends`.\n- **Interface** dengan `implements` (di Dart, setiap class implisit adalah interface).\n- **Mixin** dengan `with` untuk berbagi kode antar class.\n- **Encapsulation**: gunakan `_` di awal nama untuk *private* pada level library."
+    },
+    {
+      "id": "nullsafety",
+      "title": "Null Safety",
+      "content": "**Null safety** (stabil sejak Dart 2.12) mencegah error akibat nilai `null` yang tidak terduga.\n\nSecara default, sebuah variabel **tidak boleh** null:\n```dart\nString nama = 'Budi';\n// String kosong = null; // ERROR saat kompilasi\n```\n\nTandai boleh-null dengan `?`:\n```dart\nString? alamat; // boleh null\n```\n\nOperator penting:\n- `?.` akses aman - hanya lanjut bila bukan null: `alamat?.length`\n- `??` nilai pengganti: `alamat ?? 'Tidak diketahui'`\n- `??=` tetapkan bila masih null.\n- `!` memaksa bahwa nilai pasti bukan null (*null assertion*) - pakai hati-hati.\n\nNull safety membuat banyak bug runtime terdeteksi lebih awal, langsung saat kompilasi."
+    },
+    {
+      "id": "async",
+      "title": "Asynchronous: Future & Stream",
+      "content": "Banyak operasi (jaringan, baca file) butuh waktu. Dart menangani ini secara **asinkron** tanpa memblokir UI.\n\n**Future** - nilai yang akan tersedia nanti:\n```dart\nFuture<String> ambilData() async {\n  await Future.delayed(Duration(seconds: 2));\n  return 'Data siap';\n}\n```\n\nKata kunci `async` menandai fungsi asinkron, `await` menunggu hasilnya tanpa membekukan aplikasi.\n\n**Stream** - aliran data yang datang berkali-kali seiring waktu:\n```dart\nStream<int> hitung() async* {\n  for (var i = 1; i <= 3; i++) {\n    await Future.delayed(Duration(seconds: 1));\n    yield i;\n  }\n}\n```\n\n`Future` cocok untuk satu nilai nanti; `Stream` untuk banyak nilai berurutan. Keduanya dipakai luas di Flutter (misalnya `FutureBuilder` dan `StreamBuilder`)."
+    }
+  ],
+  "questions": [
+    {
+      "text": "Perusahaan mana yang mengembangkan bahasa Dart?",
+      "options": ["Microsoft", "Google", "Apple", "Meta (Facebook)"],
+      "answerIndex": 1,
+      "explanation": "Dart dikembangkan oleh Google dan diperkenalkan pada 2011, serta menjadi bahasa resmi framework Flutter."
+    },
+    {
+      "text": "Apa nama fungsi titik masuk (entry point) program Dart?",
+      "options": ["start()", "run()", "main()", "init()"],
+      "answerIndex": 2,
+      "explanation": "Setiap program Dart dijalankan mulai dari fungsi main()."
+    },
+    {
+      "text": "Kata kunci mana yang membuat nilai konstan dan diketahui saat kompilasi?",
+      "options": ["var", "final", "const", "static"],
+      "answerIndex": 2,
+      "explanation": "const adalah konstanta waktu kompilasi, sedangkan final ditetapkan sekali saat runtime."
+    },
+    {
+      "text": "Bagaimana cara menuliskan interpolasi variabel bernama 'nama' ke dalam string?",
+      "options": ["'Halo {nama}'", "'Halo %nama'", "'Halo $nama'", "'Halo +nama'"],
+      "answerIndex": 2,
+      "explanation": "Dart memakai tanda $ untuk interpolasi sederhana, dan ${ekspresi} untuk ekspresi."
+    },
+    {
+      "text": "Apa fungsi null safety pada Dart?",
+      "options": [
+        "Menghapus semua variabel",
+        "Mencegah error akibat nilai null yang tidak terduga saat kompilasi",
+        "Mempercepat kompilasi",
+        "Mengubah tipe data otomatis"
+      ],
+      "answerIndex": 1,
+      "explanation": "Null safety membuat kompiler mendeteksi potensi null lebih awal sehingga banyak bug terhindar."
+    },
+    {
+      "text": "Struktur mana yang tepat menggambarkan aliran data yang datang berkali-kali seiring waktu?",
+      "options": ["Future", "Stream", "List", "Map"],
+      "answerIndex": 1,
+      "explanation": "Future mewakili satu nilai di masa depan, sedangkan Stream mewakili rangkaian banyak nilai seiring waktu."
+    }
+  ]
+}

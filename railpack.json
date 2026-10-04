@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "packages": {
+    "node": "22.14.0",
+    "pnpm": "10.13.1"
+  },
+  "steps": {
+    "build": {
+      "commands": ["pnpm --filter server build"]
+    }
+  },
+  "deploy": {
+    "startCommand": "node server/dist/server/src/index.js",
+    "variables": {
+      "NODE_ENV": "production",
+      "TZ": "UTC",
+      "LANG": "en_US.UTF-8"
+    }
+  }
+}
